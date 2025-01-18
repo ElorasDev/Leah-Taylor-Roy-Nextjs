@@ -15,13 +15,13 @@ const Footer = () => {
             justify-between
             items-center"
             >
-                <div className="flex-shrink-0 mb-4 md:mb-0">
+                <div className="flex-shrink-0 mb-4 md:mb-0 flex justify-center md:justify-start">
                     <Image
                         src={Logo}
                         alt="Logo"
                         width={261}
                         height={157}
-                        className="max-w-full h-auto ml-[30px]"
+                        className="max-w-full h-auto ml-[0px] md:ml-[30px]"
                     />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 gap-x-16 m-7">
