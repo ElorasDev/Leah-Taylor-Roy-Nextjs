@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Layout from "./components/Molecule/Layout/Layout";
 
 export const metadata: Metadata = {
   title: "Leah Taylor Roy",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <Layout>
+          {children}
+        </Layout>
       </body>
     </html>
   );
