@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import Layout from "./components/Molecule/Layout/Layout";
+import Layout from "../components/Molecule/Layout/Layout";
 
 export const metadata: Metadata = {
   title: "Leah Taylor Roy",
