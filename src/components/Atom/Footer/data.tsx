@@ -1,4 +1,4 @@
-import { MenuItem, SocialMedia } from "./data";
+import { MenuItem, SocialMedia } from "./types";
 import Facebook from "../Icons/Facebook";
 import Instagram from "../Icons/Instagram";
 import Linkedin from "../Icons/Linkedin";
