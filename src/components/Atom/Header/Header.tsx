@@ -8,7 +8,7 @@ import { Menu } from './data';
 import { FaBars, FaChevronDown } from 'react-icons/fa';
 import Logo from '/public/logo/leah_taylor_roy_logo.png';
 import Image from 'next/image';
-import { MenuItem } from './data';
+import { MenuItem } from './types';
 
 
 const Header = () => {
