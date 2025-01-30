@@ -121,7 +121,7 @@ const BlogManagement = () => {
                     : (
                         <BlogPostList
                             selectedItem={selectedNav}
-                            isEditing={(select) => {
+                            isEditing={() => {
                                 setEditing(true)
                                 setShowForm(false)
                             }}
