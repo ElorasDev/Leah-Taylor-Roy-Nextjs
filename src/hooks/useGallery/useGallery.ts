@@ -30,7 +30,7 @@ const useGallery = create<MediaState>((set) => ({
         set({ loading: true, error: null });
         try {
             const response = await fetch(
-                `${process.env.API_URL}/media${fileType ? `?fileType=${fileType}` : ''}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/media${fileType ? `?fileType=${fileType}` : ''}`,
                 {
                     method: 'GET', headers: {
                         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const useGallery = create<MediaState>((set) => ({
         set({ loading: true, error: null });
         try {
             const response = await fetch(
-                `${process.env.API_URL}/media/published${fileType ? `?fileType=${fileType}` : ''}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/media/published${fileType ? `?fileType=${fileType}` : ''}`,
                 {
                     method: 'GET', headers: {
                         'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const useGallery = create<MediaState>((set) => ({
     getPublishedMediaById: async (id: number): Promise<Media | null> => {
         set({ loading: true, error: null });
         try {
-            const response = await fetch(`${process.env.API_URL}/media/published/${id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/media/published/${id}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             });
@@ -96,7 +96,7 @@ const useGallery = create<MediaState>((set) => ({
 
     createMedia: async (publicUrl: string, filename: string, status: boolean, file: File, token: string): Promise<void> => {
         set({ loading: true, error: null });
-        const response = await fetch(`${process.env.API_URL}/dashboard/upload`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/upload`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -117,12 +117,11 @@ const useGallery = create<MediaState>((set) => ({
         }
     },
 
-
     updateMedia: async (id: number, token: string, published: boolean): Promise<void> => {
         set({ loading: true, error: null });
 
         try {
-            const response = await fetch(`${process.env.API_URL}/dashboard/update-file/${id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/update-file/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -147,7 +146,7 @@ const useGallery = create<MediaState>((set) => ({
         set({ loading: true, error: null });
 
         try {
-            const response = await fetch(`${process.env.API_URL}/dashboard/delete-file/${id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/delete-file/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,

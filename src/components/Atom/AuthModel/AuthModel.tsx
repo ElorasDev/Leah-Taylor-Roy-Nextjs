@@ -18,7 +18,7 @@ const AuthModel = () => {
       }
     };
     checkAuth();
-  }, [router, token]);
+  }, [router]);
   
   const handleSubmit = async (e: FormEvent ) => {
     e.preventDefault();

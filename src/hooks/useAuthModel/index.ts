@@ -16,7 +16,7 @@ const useAuthModel = create<AuthState>((set) => ({
   login: async (username: string, password: string) => {
     set({ loading: true, error: null });
     try {
-      const response = await fetch(`${process.env.API_URL}/auth/login`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
