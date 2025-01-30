@@ -49,7 +49,7 @@ const useBlogPost = create<BlogPostState>((set) => ({
     ): Promise<string | null> => {
         set({ loading: true, error: null, success: false });
         try {
-            const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/post-blog`, {
+            const response: Response = await fetch(`${process.env.API_URL}/dashboard/post-blog`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const useBlogPost = create<BlogPostState>((set) => ({
     getAllBlogPost: async (): Promise<void> => {
         set({ loading: true, error: null, success: false });
         try {
-            const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/posts`, {
+            const response: Response = await fetch(`${process.env.API_URL}/blog/posts`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const useBlogPost = create<BlogPostState>((set) => ({
     ): Promise<void> => {
         set({ loading: true, error: null, success: false });
         try {
-            const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/update-blog/${id}`, {
+            const response: Response = await fetch(`${process.env.API_URL}/dashboard/update-blog/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ const useBlogPost = create<BlogPostState>((set) => ({
     deleteBlogPost: async (id: string, token: string, section: string): Promise<void> => {
         set({ loading: true, error: null, success: false });
         try {
-            const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/remove-${section}/${id}`, {
+            const response: Response = await fetch(`${process.env.API_URL}/dashboard/remove-${section}/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

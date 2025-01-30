@@ -49,7 +49,7 @@ const useNewsPost = create<NewsPostState>((set) => ({
     ): Promise<string | null> => {
         set({ loading: true, error: null, success: false });
         try {
-            const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/post-news`, {
+            const response: Response = await fetch(`${process.env.API_URL}/dashboard/post-news`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const useNewsPost = create<NewsPostState>((set) => ({
     getAllNewsPost: async (): Promise<void> => {
         set({ loading: true, error: null, success: false });
         try {
-            const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/news`, {
+            const response: Response = await fetch(`${process.env.API_URL}/news`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ const useNewsPost = create<NewsPostState>((set) => ({
     ): Promise<void> => {
         set({ loading: true, error: null, success: false });
         try {
-            const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/update-news/${id}`, {
+            const response: Response = await fetch(`${process.env.API_URL}/dashboard/update-news/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ const useNewsPost = create<NewsPostState>((set) => ({
     deleteNewsPost: async (id: string, token: string, section: string): Promise<void> => {
         set({ loading: true, error: null, success: false });
         try {
-            const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/remove-${section}/${id}`, {
+            const response: Response = await fetch(`${process.env.API_URL}/dashboard/remove-${section}/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
