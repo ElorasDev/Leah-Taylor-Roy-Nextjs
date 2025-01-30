@@ -60,7 +60,7 @@ const Header = () => {
     transition-transform 
     duration-300 
     text-white 
-    ${isScrolled ? 'bg-primary' : 'bg-transparent'} 
+    ${pathname === "/" ? (isScrolled ? 'bg-primary' : 'bg-transparent') : 'bg-primary'}
     ${isVisible ? 'translate-y-0' : '-translate-y-full'}
     `}>
       <div className="flex-shrink-0">
