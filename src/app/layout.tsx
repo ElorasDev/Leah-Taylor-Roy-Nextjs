@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
+import { SupabaseProvider } from "@/Providers/SupabaseProvider";
 import type { Metadata } from "next";
-import "./globals.css";
 import Layout from "../components/Molecule/Layout/Layout";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Leah Taylor Roy",
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased bg-white">
-        <Layout>
-          {children}
-        </Layout>
+        <SupabaseProvider>
+          <Layout>
+            {children}
+          </Layout>
+        </SupabaseProvider>
       </body>
     </html>
   );

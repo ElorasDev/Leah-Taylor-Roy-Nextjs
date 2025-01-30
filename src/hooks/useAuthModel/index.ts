@@ -13,12 +13,14 @@ const useAuthModel = create<AuthState>((set) => ({
   loading: false,
   error: null,
   token: Cookies.get('auth_token') || null,
-  login: async (username, password) => {
+  login: async (username: string, password: string) => {
     set({ loading: true, error: null });
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ username, password }),
       });
 
@@ -28,7 +30,7 @@ const useAuthModel = create<AuthState>((set) => ({
       }
 
       const { token } = await response.json();
-      
+
       Cookies.set('auth_token', token, {
         expires: 2,
         secure: process.env.NODE_ENV === 'production',
@@ -39,19 +41,19 @@ const useAuthModel = create<AuthState>((set) => ({
       set({ token, loading: false });
 
     } catch (err) {
-      set({ 
+      set({
         error: err instanceof Error ? err.message : 'An unexpected error occurred',
-        loading: false 
+        loading: false
       });
     }
   },
   logout: () => {
-    Cookies.remove('auth_token', { 
+    Cookies.remove('auth_token', {
       path: '/',
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict'
     });
-    
+
     set({ token: null, error: null });
   }
 }));
