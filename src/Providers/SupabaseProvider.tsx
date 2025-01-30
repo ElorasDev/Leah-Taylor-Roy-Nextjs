@@ -18,7 +18,7 @@ export const SupabaseProvider: NextPage<SupabaseProviderProps> = ({ children }) 
   //* useEffect hook to initialize the Supabase client when this component mounts
   useEffect(() => {
     const client = createClientComponentClient({
-        supabaseUrl: process.env.SUPERBASE_URL!,
+        supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL!,
         supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       });
       setSupabaseClient(client);
