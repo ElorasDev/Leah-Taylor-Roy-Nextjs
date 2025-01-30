@@ -14,7 +14,7 @@ const AuthModel = () => {
     const checkAuth = async () => {
       const savedToken = Cookies.get('auth_token');
       if (savedToken) {
-          router.push('/');
+          router.push('/dashboard');
       }
     };
     checkAuth();
@@ -23,6 +23,8 @@ const AuthModel = () => {
   const handleSubmit = async (e: FormEvent ) => {
     e.preventDefault();
     await login(username, password);
+    console.log({username, password});
+    
   };
 
   return (
