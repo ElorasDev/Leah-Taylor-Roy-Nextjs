@@ -19,7 +19,7 @@ export const SupabaseProvider: NextPage<SupabaseProviderProps> = ({ children }) 
   useEffect(() => {
     const client = createClientComponentClient({
         supabaseUrl: process.env.SUPERBASE_URL!,
-        supabaseKey: process.env.SUPABASE_ANON_KEY!,
+        supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       });
       setSupabaseClient(client);
   }, []);
