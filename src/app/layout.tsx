@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased bg-white">
+      <body className="antialiased bg-[#F2F3F4]">
         <SupabaseProvider>
           <Layout>
             {children}
