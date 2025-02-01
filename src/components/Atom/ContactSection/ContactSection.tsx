@@ -141,14 +141,13 @@ const ContactSection = () => {
                             type="submit"
                             className="w-full sm:w-auto px-8 py-3 bg-primary text-white rounded-lg flex items-center justify-center gap-2 hover:bg-primary-dark transition-all shadow-lg hover:scale-105"
                             title="Send your message"
-                            disabled={!!phoneError} // غیر فعال کردن دکمه در صورت خطا
                         >
                             <FiSend size={18} aria-hidden="true" /> Send Message
                         </button>
 
                         <button
                             type="button"
-                            className="w-full sm:w-auto px-8 py-3 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
+                            className="w-full sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
                             title="Contact our office"
                         >
                             <FiPhone size={18} aria-hidden="true" /> Contact My Office
