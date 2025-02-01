@@ -1,6 +1,7 @@
+"use client";
 import { NextPage } from "next";
 import { StaticImageData } from "next/image";
-
+import { useRouter } from "next/navigation";
 
 interface IBillboardProps {
 
@@ -8,7 +9,10 @@ interface IBillboardProps {
 
 }
 
-const Billboard:NextPage<IBillboardProps> = ({image}) => {
+const Billboard: NextPage<IBillboardProps> = ({ image }) => {
+
+    const router = useRouter();
+
     return (
         <section>
             <div className="
@@ -63,7 +67,9 @@ const Billboard:NextPage<IBillboardProps> = ({image}) => {
                                     py-2
                                     shadow-sm
                                     w-full
-                            ">
+                            "
+                                onClick={() => router.push("/about-leah")}
+                            >
                                 Learn More About Leah
                             </button>
                             <button className="
@@ -79,7 +85,9 @@ const Billboard:NextPage<IBillboardProps> = ({image}) => {
                                     py-2
                                     shadow-sm
                                     w-full
-                            ">
+                            "
+                                onClick={() => router.push("https://www.ourcommons.ca/members/en/leah-taylor-roy(105024)#work")}
+                            >
                                 Explore Parliamentary Work
                             </button>
                         </article>
