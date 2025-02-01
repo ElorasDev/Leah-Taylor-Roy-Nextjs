@@ -1,5 +1,6 @@
 "use client";
 import { sendMessage } from "@/actions/sendMessage";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FiUser, FiMail, FiPhone, FiSend } from "react-icons/fi";
 
@@ -13,10 +14,11 @@ const ContactSection = () => {
 
     const [phoneError, setPhoneError] = useState("");
 
+    const router = useRouter();
+
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
 
-        // بررسی شماره تلفن
         if (name === "phone_number") {
             const canadaPhoneRegex = /^\+1\d{10}$/;
             if (!canadaPhoneRegex.test(value)) {
@@ -37,7 +39,7 @@ const ContactSection = () => {
         if (phoneError) return;
         const { fullname, email, phone_number, content } = formData;
         await sendMessage(fullname, email, phone_number, content);
-        setFormData({ fullname: "", email: "", phone_number: "", content: "" });
+        router.refresh();
     };
 
     return (
