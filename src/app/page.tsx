@@ -1,9 +1,10 @@
+import Landing from "@/components/Molecule/Landing/Landing";
 
 export default function Home() {
   return (
-    <div className="h-[100vh]">
+    <div className="h-full">
       <main>
-        main section
+        <Landing />
       </main>
     </div>
   );
