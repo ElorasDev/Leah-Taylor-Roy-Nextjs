@@ -1,6 +1,5 @@
 "use client";
 import { sendMessage } from "@/actions/sendMessage";
-import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FiUser, FiMail, FiPhone, FiSend } from "react-icons/fi";
 
@@ -13,8 +12,6 @@ const ContactSection = () => {
     });
 
     const [phoneError, setPhoneError] = useState("");
-
-    const router = useRouter();
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -39,7 +36,7 @@ const ContactSection = () => {
         if (phoneError) return;
         const { fullname, email, phone_number, content } = formData;
         await sendMessage(fullname, email, phone_number, content);
-        router.refresh();
+        setFormData({ fullname: "", email: "", phone_number: "", content: "" });
     };
 
     return (
@@ -68,6 +65,7 @@ const ContactSection = () => {
                             <input
                                 id="fullname"
                                 type="text"
+                                value={formData.fullname}
                                 name="fullname"
                                 className="w-full px-4 py-3 outline-none"
                                 placeholder="Enter your full name"
@@ -89,6 +87,7 @@ const ContactSection = () => {
                             <input
                                 id="email"
                                 type="email"
+                                value={formData.email}
                                 name="email"
                                 className="w-full px-4 py-3 outline-none"
                                 placeholder="example@domain.com"
@@ -111,6 +110,7 @@ const ContactSection = () => {
                                 id="phone_number"
                                 type="tel"
                                 name="phone_number"
+                                value={formData.phone_number}
                                 className="w-full px-4 py-3 outline-none"
                                 placeholder="+12345678901"
                                 pattern="^\+1\d{10}$"
@@ -130,6 +130,7 @@ const ContactSection = () => {
                         <textarea
                             id="content"
                             name="content"
+                            value={formData.content}
                             rows={4}
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Write your message here..."
