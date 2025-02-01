@@ -1,6 +1,6 @@
 "use client";
 import { sendMessage } from "@/actions/sendMessage";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { FiUser, FiMail, FiPhone, FiSend } from "react-icons/fi";
 
 const ContactSection = () => {
@@ -11,16 +11,30 @@ const ContactSection = () => {
         content: "",
     });
 
+    const [phoneError, setPhoneError] = useState("");
+
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
+
+        // بررسی شماره تلفن
+        if (name === "phone_number") {
+            const canadaPhoneRegex = /^\+1\d{10}$/;
+            if (!canadaPhoneRegex.test(value)) {
+                setPhoneError("Please enter a valid Canadian phone number (e.g., +12345678901)");
+            } else {
+                setPhoneError("");
+            }
+        }
+
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+        if (phoneError) return;
         const { fullname, email, phone_number, content } = formData;
         await sendMessage(fullname, email, phone_number, content);
     };
@@ -49,9 +63,9 @@ const ContactSection = () => {
                                 <FiUser size={20} aria-hidden="true" />
                             </span>
                             <input
-                                id="name"
+                                id="fullname"
                                 type="text"
-                                name="name"
+                                name="fullname"
                                 className="w-full px-4 py-3 outline-none"
                                 placeholder="Enter your full name"
                                 onChange={handleChange}
@@ -83,7 +97,7 @@ const ContactSection = () => {
                     </div>
 
                     <div className="relative">
-                        <label htmlFor="phone" className="block text-gray-700 text-sm font-medium mb-2">
+                        <label htmlFor="phone_number" className="block text-gray-700 text-sm font-medium mb-2">
                             Phone Number
                         </label>
                         <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
@@ -91,31 +105,34 @@ const ContactSection = () => {
                                 <FiPhone size={20} aria-hidden="true" />
                             </span>
                             <input
-                                id="phone"
+                                id="phone_number"
                                 type="tel"
-                                name="phone"
+                                name="phone_number"
                                 className="w-full px-4 py-3 outline-none"
-                                placeholder="+01XXXXXX"
+                                placeholder="+12345678901"
+                                pattern="^\+1\d{10}$"
+                                title="Please enter a valid Canadian phone number (e.g., +12345678901)"
                                 onChange={handleChange}
                                 required
                                 aria-label="Phone Number"
                             />
                         </div>
+                        {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
                     </div>
 
                     <div>
-                        <label htmlFor="message" className="block text-gray-700 text-sm font-medium mb-2">
+                        <label htmlFor="content" className="block text-gray-700 text-sm font-medium mb-2">
                             Message
                         </label>
                         <textarea
-                            id="message"
-                            name="message"
+                            id="content"
+                            name="content"
                             rows={4}
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Write your message here..."
                             onChange={handleChange}
                             required
-                            aria-label="Message"
+                            aria-label="content"
                         ></textarea>
                     </div>
 
@@ -124,13 +141,14 @@ const ContactSection = () => {
                             type="submit"
                             className="w-full sm:w-auto px-8 py-3 bg-primary text-white rounded-lg flex items-center justify-center gap-2 hover:bg-primary-dark transition-all shadow-lg hover:scale-105"
                             title="Send your message"
+                            disabled={!!phoneError} // غیر فعال کردن دکمه در صورت خطا
                         >
                             <FiSend size={18} aria-hidden="true" /> Send Message
                         </button>
 
                         <button
                             type="button"
-                            className="w-full sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
+                            className="w-full sm:w-auto px-8 py-3 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
                             title="Contact our office"
                         >
                             <FiPhone size={18} aria-hidden="true" /> Contact My Office
