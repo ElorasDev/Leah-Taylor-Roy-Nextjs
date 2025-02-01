@@ -37,6 +37,7 @@ const ContactSection = () => {
         if (phoneError) return;
         const { fullname, email, phone_number, content } = formData;
         await sendMessage(fullname, email, phone_number, content);
+        setFormData({ fullname: "", email: "", phone_number: "", content: "" });
     };
 
     return (
