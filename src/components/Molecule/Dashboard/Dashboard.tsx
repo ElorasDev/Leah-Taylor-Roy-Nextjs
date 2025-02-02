@@ -2,26 +2,27 @@
 import { useEffect, useState } from "react";
 import { NextPage } from 'next';
 import { useRouter } from "next/navigation";
-import  Cookies  from "js-cookie";
+import Cookies from "js-cookie";
 
-//Components
+// Components
 import MainNavigation from "@/components/Atom/DashboardContent/MainNavigation/MainNavigation";
 import { mainNavigationContent } from "@/components/Atom/DashboardContent/MainNavigation/data";
 
 const Dashboard: NextPage = () => {
-
     const [select, setSelect] = useState<number>(0);
+    const [loading, setLoading] = useState<boolean>(true);
     const router = useRouter();
+    const savedToken = Cookies.get('auth_token');
 
     useEffect(() => {
-      const checkAuth = async () => {
-        const savedToken = Cookies.get('auth_token');
         if (!savedToken) {
             router.push('/');
+        } else {
+            setLoading(false);
         }
-      };
-      checkAuth();
-    }, [router]);
+    }, [router, savedToken]);
+
+    if (loading) return null;
 
     return (
         <div className="h-[100vh] my-32">

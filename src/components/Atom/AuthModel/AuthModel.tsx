@@ -5,30 +5,30 @@ import Cookies from 'js-cookie';
 import useAuthModel from '../../../hooks/useAuthModel';
 
 const AuthModel = () => {
-  const { login, loading, error, token } = useAuthModel();
+  const { login, loading, error } = useAuthModel();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [load, setLoad] = useState<boolean>(true);
   const router = useRouter();
+  const savedToken = Cookies.get('auth_token');
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      const savedToken = Cookies.get('auth_token');
-      if (savedToken) {
-          router.push('/dashboard');
-      }
-    };
-    checkAuth();
-  }, [router, token]);
-  
-  const handleSubmit = async (e: FormEvent ) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     await login(username, password);
-    console.log({username, password});
-    
   };
 
+  useEffect(() => {
+    if (savedToken) {
+        router.push('/dashboard');
+    } else {
+        setLoad(false);
+    }
+}, [savedToken]);
+
+if (load) return null;
+
   return (
-    <div className="border p-4 max-w-md w-[270px] mx-auto mt-10 rounded-md">
+    <div className="border border-white bg-white p-4 max-w-md w-[270px] mx-auto mt-10 rounded-md">
       <h2 className="text-2xl mb-4 text-center">Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
