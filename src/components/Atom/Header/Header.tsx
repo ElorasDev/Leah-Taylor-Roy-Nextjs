@@ -152,17 +152,17 @@ const Header = () => {
             {
               Menu.map((item) => {
                 return (
-                  <div key={item.id} className="text-center mt-2" onClick={() => setOpenSection(!openSection)}>
+                  <div key={item.id} className="text-center mt-2">
                     {
                       item.pathname ? (
-                        <Link href={`${item.pathname}`}>
+                        <Link href={`${item.pathname}`} onClick={toggleMenu}>
                           {
                             item.title
                           }
                         </Link>
                       )
                         :
-                        <div className="flex justify-center">
+                        <div className="flex justify-center" onClick={() => setOpenSection(!openSection)}>
                           {item.title} <FaChevronDown className="ml-1 mt-2 size-3" />
                         </div>
                     }

@@ -37,6 +37,16 @@ export const Menu: MenuItem[] = [
             },
             {
                 id: 4,
+                title: "Events",
+                pathname: "events"
+            },
+            {
+                id: 5,
+                title: "Contact Leah",
+                pathname: "contect-me",
+            },
+            {
+                id: 6,
                 title: "Get Involved & Feedback Forms",
                 pathname: "involved-feedback"
             },
