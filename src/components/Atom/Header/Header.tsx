@@ -84,7 +84,7 @@ const Header = () => {
                 `}>
                 {
                   item.pathname ? (
-                    <Link href={`/${item.pathname}`} className="flex">
+                    <Link href={`${item.pathname}`} className="flex">
                       {
                         item.title
                       }
@@ -112,7 +112,7 @@ const Header = () => {
                           {item.sections.map((service) => (
                             <Link
                               key={service.id}
-                              href={`/${service.pathname}`}
+                              href={`${service.pathname}`}
                               className="block px-4 py-2 hover:bg-gray-200"
                             >
                               {service.title}
@@ -155,7 +155,7 @@ const Header = () => {
                   <div key={item.id} className="text-center mt-2" onClick={() => setOpenSection(!openSection)}>
                     {
                       item.pathname ? (
-                        <Link href={`/${item.pathname}`}>
+                        <Link href={`${item.pathname}`}>
                           {
                             item.title
                           }
@@ -169,7 +169,7 @@ const Header = () => {
                     {item.sections && openSection && (
                       <div className="flex flex-col items-center space-y-2 py-2">
                         {item.sections.map((section: MenuItem) => (
-                          <Link key={section.id} href={`/${section.pathname}`}>
+                          <Link key={section.id} href={`${section.pathname}`}>
                             {section.title}
                           </Link>
                         ))}

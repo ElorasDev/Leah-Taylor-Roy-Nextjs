@@ -13,13 +13,13 @@ export const menu: MenuItem[] = [
     },
     {
         id: 1,
-        title: "Resource",
+        title: "Events",
         pathname: "/resource"
     },
     {
         id: 2,
         title: "About Me",
-        pathname: "/about-me"
+        pathname: "/about-leah"
     },
     {
         id: 3,
@@ -34,7 +34,7 @@ export const menu: MenuItem[] = [
     {
         id: 5,
         title: "Parliamentary Work",
-        pathname: "/parliamentary-work"
+        pathname: "https://www.ourcommons.ca/members/en/leah-taylor-roy(105024)#work"
     },
     {
         id: 6,

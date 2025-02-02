@@ -23,7 +23,7 @@ export const Menu: MenuItem[] = [
             {
                 id: 1,
                 title: "Parliamentary Work",
-                pathname: "parliamentary-work"
+                pathname: "https://www.ourcommons.ca/members/en/leah-taylor-roy(105024)#work"
             },
             {
                 id: 2,
