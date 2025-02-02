@@ -84,7 +84,7 @@ const Header = () => {
                 `}>
                 {
                   item.pathname ? (
-                    <Link href={`${item.pathname}`} className="flex">
+                    <Link href={`/${item.pathname}`} className="flex">
                       {
                         item.title
                       }
@@ -155,7 +155,7 @@ const Header = () => {
                   <div key={item.id} className="text-center mt-2" onClick={() => setOpenSection(!openSection)}>
                     {
                       item.pathname ? (
-                        <Link href={`${item.pathname}`}>
+                        <Link href={`/${item.pathname}`}>
                           {
                             item.title
                           }
