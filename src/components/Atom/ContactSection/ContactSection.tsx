@@ -143,7 +143,7 @@ const ContactSection = () => {
                     <div className="flex flex-col sm:flex-row gap-4 mt-6">
                         <button
                             type="submit"
-                            className="w-full sm:w-auto px-8 py-3 bg-primary text-white rounded-lg flex items-center justify-center gap-2 hover:bg-primary-dark transition-all shadow-lg hover:scale-105"
+                            className="w-full sm:w-auto px-8 py-3 bg-primary text-white rounded-lg flex items-center justify-center gap-2 hover:bg-primary transition-all shadow-lg hover:scale-105"
                             title="Send your message"
                         >
                             <FiSend size={18} aria-hidden="true" /> Send Message

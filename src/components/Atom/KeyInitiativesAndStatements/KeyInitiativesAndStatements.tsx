@@ -26,7 +26,7 @@ const KeyInitiativesAndStatements = () => {
                             w-full max-w-7xl mx-auto
                         `}
                     >
-            
+
                         <figure className="w-full md:w-1/2 h-auto flex">
                             <div className="relative w-full h-full">
                                 <Image
@@ -40,7 +40,7 @@ const KeyInitiativesAndStatements = () => {
                         </figure>
 
                         <div className="md:w-1/2 bg-white text-center md:text-left p-6 sm:p-8 flex flex-col justify-center relative h-full">
-                          
+
                             <div
                                 className={`absolute top-1/2 -translate-y-1/2 
                                     w-0 h-0
@@ -55,14 +55,16 @@ const KeyInitiativesAndStatements = () => {
                             </h2>
 
                             {item.content.split(". ").map((sentence, i) => (
-                                <p key={i} className="text-md text-gray-700 mt-4">
+                                <p key={i} className="text-md text-neutral mt-4">
                                     {sentence}
                                 </p>
                             ))}
 
                             <button
-                                className="mt-6 rounded-lg text-white bg-secondary
-                                    transition-colors px-4 py-2 w-full md:w-auto hover:bg-secondary-dark"
+                                className="mt-6 rounded-lg text-white bg-secendory
+                                    transition-all px-4 py-2 w-full md:w-auto hover:bg-secendory
+                                    hover:scale-105 
+                                    "
                                 onClick={() => router.push(`${item.href}`)}
                                 aria-label={`Explore ${item.title} Parliamentary Work`}
                             >
