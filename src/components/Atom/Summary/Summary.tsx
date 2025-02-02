@@ -27,7 +27,7 @@ const Summary: NextPage<ISummaryProps> = ({
         <section className="py-8 px-4 md:px-8">
             <div className={`flex flex-col ${reverse ? "md:flex-row" : "md:flex-row-reverse"} justify-between items-center md:items-start`}>
                 
-                <div className="mb-6 md:mb-0 flex justify-center">
+                <figure className="mb-6 md:mb-0 flex justify-center">
                     <Image
                         src={src}
                         alt="Leah Taylor Roy"
@@ -37,7 +37,7 @@ const Summary: NextPage<ISummaryProps> = ({
                         loading="lazy"
                         sizes="(max-width: 768px) 400px, 600px"
                     />
-                </div>
+                </figure>
 
                 <article className="md:w-1/2 text-center md:text-left">
                     <h1 className="text-2xl font-bold text-neutral mb-4">
