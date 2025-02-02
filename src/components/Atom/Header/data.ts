@@ -18,27 +18,27 @@ export const Menu: MenuItem[] = [
             {
                 id: 0,
                 title: "Constituency Work",
-                pathname: "/constituency-work"
+                pathname: "constituency-work"
             },
             {
                 id: 1,
                 title: "Parliamentary Work",
-                pathname: "/parliamentary-work"
+                pathname: "parliamentary-work"
             },
             {
                 id: 2,
                 title: "News & Media",
-                pathname: "/news"
+                pathname: "news"
             },
             {
                 id: 3,
                 title: "Gallery",
-                pathname: "/gallery"
+                pathname: "gallery"
             },
             {
                 id: 4,
                 title: "Get Involved & Feedback Forms",
-                pathname: "/involved-feedback"
+                pathname: "involved-feedback"
             },
         ]
     }
