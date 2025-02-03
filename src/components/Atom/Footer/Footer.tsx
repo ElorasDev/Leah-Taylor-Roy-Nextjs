@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 gap-x-16 m-7">
                     {menu.map((item) => (
-                        <Link key={item.id} href={item.pathname || "/"} className="hover:font-bold text-center md:text-left">
+                        <Link key={item.id} href={`/${item.pathname}` || "/"} className="hover:font-bold text-center md:text-left">
                             {item.title}
                         </Link>
                     ))}
