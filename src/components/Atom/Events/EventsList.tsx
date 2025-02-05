@@ -22,7 +22,7 @@ const EventsList = () => {
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
-    const [statusFilter, setStatusFilter] = useState<string>("all"); // فیلتر استاتوس
+    const [statusFilter, setStatusFilter] = useState<string>("all");
     const debouncedSearchQuery = useDebounce(searchQuery, 500);
 
     useEffect(() => {
