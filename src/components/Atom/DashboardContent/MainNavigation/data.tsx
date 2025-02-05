@@ -4,6 +4,8 @@ import { MainNavigationContentType } from './types';
 // Components
 import NewsManagement from '../NewsManagement/NewsManagement';
 import BlogManagement from '../BlogManagement/BlogManagement';
+import GalleryManagement from '../Gallery/GallaryManagement';
+import EventManagement from '../EventManagement/EventManagement';
 
 // icons
 import {
@@ -14,7 +16,6 @@ import {
     FaCalendarAlt,
     FaEnvelope
 } from 'react-icons/fa';
-import GalleryManagement from '../Gallery/GallaryManagement';
 
 export const mainNavigationContent: MainNavigationContentType[] = [
     {
@@ -44,6 +45,7 @@ export const mainNavigationContent: MainNavigationContentType[] = [
         id: 4,
         title: "Events",
         icon: <FaCalendarAlt />,
+        component: <EventManagement />
     },
     {
         id: 5,
