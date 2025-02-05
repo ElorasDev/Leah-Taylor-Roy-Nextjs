@@ -2,32 +2,35 @@
 
 import { Fragment, useEffect, useState } from "react";
 import { NextPage } from "next";
-import useBlogPost from "@/hooks/useBlogPost";
-import Posts from "../../Posts/Posts";
+import { useEvent } from "@/hooks/useEvent";
+import EventItem from "../EventsItems/EventItem";
 
-interface IBlogPostListProps {
-    selectedItem: 'All Posts' | 'Published' | 'Archived' | 'Draft';
+interface INewsPostListProps {
+    selectedItem: 'All Events' | 'upcoming' | 'ongoing' | 'complated' | 'canceled';
     isEditing: (select: boolean) => void;
-    selectPost: (select: {
+    selectEvent: (select: {
         id: number;
         title: string;
-        content: string;
+        description: string;
         index_image_url: string;
-        status: string;
+        start_datetime: string;
+        location: string;
+        end_datetime: string;
+        status: 'upcoming' | 'ongoing' | 'complated' | 'canceled';
     }) => void;
 }
 
-const BlogPostList: NextPage<IBlogPostListProps> = ({ selectedItem, isEditing, selectPost }) => {
-    const { getAllBlogPost, blogPosts, loading, error } = useBlogPost();
+const EventList: NextPage<INewsPostListProps> = ({ selectedItem, isEditing, selectEvent }) => {
+    const { getAllEvents, events, loading, error } = useEvent();
     const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
-        getAllBlogPost();
-    }, [getAllBlogPost]);
+        getAllEvents();
+    }, [getAllEvents]);
 
-    const filteredBlogPosts = blogPosts?.filter(post => {
-        const matchesCategory = selectedItem === 'All Posts' || post.status === selectedItem.toLowerCase();
-        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const filteredevent = events?.filter(event => {
+        const matchesCategory = selectedItem === 'All Events' || event.status === selectedItem.toLowerCase();
+        const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
     });
 
@@ -61,21 +64,20 @@ const BlogPostList: NextPage<IBlogPostListProps> = ({ selectedItem, isEditing, s
             )}
 
             {!loading && !error && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {filteredBlogPosts && filteredBlogPosts.length > 0 ? (
-                        filteredBlogPosts.map((post, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredevent && filteredevent.length > 0 ? (
+                        filteredevent.map((event, index) => (
                             <Fragment key={index}>
-                                <Posts
-                                    post={post}
+                                <EventItem
+                                    event={event}
                                     isEditing={(select) => isEditing(select)}
-                                    selectPost={(select) => selectPost(select)}
-                                    section="blog"
+                                    selectEvent={(select) => selectEvent(select)}
                                 />
                             </Fragment>
                         ))
                     ) : (
                         <div className="col-span-full text-center text-primary font-bold text-lg">
-                            No posts available.
+                            No Event available.
                         </div>
                     )}
                 </div>
@@ -84,4 +86,4 @@ const BlogPostList: NextPage<IBlogPostListProps> = ({ selectedItem, isEditing, s
     );
 };
 
-export default BlogPostList;
+export default EventList;
