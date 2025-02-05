@@ -27,13 +27,12 @@ interface IMedia {
     section: string;
 }
 
-const Media: NextPage<IMedia> = ({ media, section }) => {
+const Media: NextPage<IMedia> = ({ media }) => {
     const { deleteMedia, updateMedia } = useGallery();
     const savedToken = Cookies.get("auth_token");
 
     const handleDelete = async (id: number) => {
-        if (section === "media") await deleteMedia(id, savedToken!);
-        else await deleteMedia(id, savedToken!);
+        await deleteMedia(id, savedToken!);
     };
 
     const handleCopyPath = (path: string) => {
@@ -44,14 +43,12 @@ const Media: NextPage<IMedia> = ({ media, section }) => {
 
     const handleStatusChange = async (event: ChangeEvent<HTMLSelectElement>) => {
         const newStatus = event.target.value === "published";
-        console.log(newStatus);
-        
         await updateMedia(media.id, savedToken!, newStatus);
     };
 
     return (
         <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden">
-            {media.path && (
+            {media.file_type === "image" ? (
                 <Image
                     src={media.path}
                     alt={media.filename}
@@ -60,15 +57,19 @@ const Media: NextPage<IMedia> = ({ media, section }) => {
                     className="w-full h-48 object-cover"
                     loading="lazy"
                 />
-            )}
+            ) : media.file_type === "video" ? (
+                <video
+                    controls
+                    className="w-full h-48 object-cover"
+                >
+                    <source src={media.path} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            ) : null}
+
             <div className="p-4">
                 <p className="text-sm text-center text-gray-500 mt-2 capitalize">
-                    {
-                        media.published === true ?
-                            "Published"
-                            :
-                            "UnPublished"
-                    }
+                    {media.published ? "Published" : "Unpublished"}
                 </p>
                 <select
                     value={media.published ? "published" : "unpublished"}

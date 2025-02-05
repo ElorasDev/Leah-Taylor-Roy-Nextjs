@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 interface Media {
+    created_at: number;
     id: number;
     filename: string;
     file_type: 'image' | 'video' | 'document';
@@ -94,7 +95,7 @@ const useGallery = create<MediaState>((set) => ({
         }
     },
 
-    createMedia: async (publicUrl: string, filename: string, status: boolean, file: File, token: string): Promise<void> => {
+    createMedia: async (publicUrl: string, filename: string, published: boolean, file: File, token: string): Promise<void> => {
         set({ loading: true, error: null });
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/upload`, {
             method: 'POST',
@@ -107,7 +108,7 @@ const useGallery = create<MediaState>((set) => ({
                 path: publicUrl,
                 mimetype: file.type,
                 size: file.size,
-                published: status,
+                published,
             })
         });
 
