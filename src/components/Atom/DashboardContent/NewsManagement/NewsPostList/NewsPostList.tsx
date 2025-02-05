@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { NextPage } from "next";
 import useNewsPost from "@/hooks/useNewsPost";
-import Posts from "../../PostsI/Posts";
+import Posts from "../../Posts/Posts";
 
 interface INewsPostListProps {
     selectedItem: 'All News' | 'Published' | 'Archived' | 'Draft';

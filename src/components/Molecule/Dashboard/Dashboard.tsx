@@ -25,7 +25,7 @@ const Dashboard: NextPage = () => {
     if (loading) return null;
 
     return (
-        <div className="h-[100vh] my-32">
+        <div className="min-h-screen my-32">
             <div className="flex justify-between mx-10 space-x-5">
                 <div className="w-fit">
                     <MainNavigation selectHandller={(selector) => {
