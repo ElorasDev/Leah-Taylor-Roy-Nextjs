@@ -9,7 +9,7 @@ export const Menu: MenuItem[] = [
     {
         id: 1,
         title: "About Me",
-        pathname: "about-leah"
+        pathname: "/about-leah"
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ export const Menu: MenuItem[] = [
             {
                 id: 0,
                 title: "Constituency Work",
-                pathname: "constituency-work"
+                pathname: "/constituency-work"
             },
             {
                 id: 1,
@@ -28,22 +28,22 @@ export const Menu: MenuItem[] = [
             {
                 id: 2,
                 title: "News & Media",
-                pathname: "news"
+                pathname: "/news"
             },
             {
                 id: 3,
                 title: "Gallery",
-                pathname: "gallery"
+                pathname: "/gallery"
             },
             {
                 id: 4,
                 title: "Events",
-                pathname: "events"
+                pathname: "/events"
             },
             {
                 id: 5,
                 title: "Contact Leah",
-                pathname: "contect-me",
+                pathname: "/contact-us",
             },
             {
                 id: 6,
