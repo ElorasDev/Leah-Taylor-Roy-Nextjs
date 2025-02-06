@@ -16,6 +16,7 @@ import {
     FaCalendarAlt,
     FaEnvelope
 } from 'react-icons/fa';
+import MessageManagement from '../MessageManagement/MessageManagement';
 
 export const mainNavigationContent: MainNavigationContentType[] = [
     {
@@ -51,5 +52,6 @@ export const mainNavigationContent: MainNavigationContentType[] = [
         id: 5,
         title: "Messages",
         icon: <FaEnvelope />,
+        component: <MessageManagement />
     },
 ];
