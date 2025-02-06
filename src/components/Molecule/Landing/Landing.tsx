@@ -25,7 +25,9 @@ const Landing = () => {
                 <div className="!p-0 !m-0">
                     <KeyInitiativesAndStatements />
                 </div>
-                <ContactSection />
+                <ContactSection
+                title="Contact Us - Get in Touch"
+                />
             </section>
         </>
     )
