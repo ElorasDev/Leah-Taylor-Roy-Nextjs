@@ -1,7 +1,8 @@
 "use client";
-import { sendMessage } from "@/actions/sendMessage";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { NextRouter, useRouter } from "next/navigation";
 import { FiUser, FiMail, FiPhone, FiSend } from "react-icons/fi";
+import { sendMessage } from "@/actions/sendMessage";
 
 const ContactSection = () => {
     const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const ContactSection = () => {
     });
 
     const [phoneError, setPhoneError] = useState("");
+    const router = useRouter();
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -153,6 +155,7 @@ const ContactSection = () => {
                             type="button"
                             className="w-full sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
                             title="Contact our office"
+                            onClick={() => router.push("/contact-us")}
                         >
                             <FiPhone size={18} aria-hidden="true" /> Contact My Office
                         </button>
