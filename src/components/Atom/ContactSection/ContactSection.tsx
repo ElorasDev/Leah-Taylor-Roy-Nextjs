@@ -1,16 +1,27 @@
 "use client";
-import { ChangeEvent, FormEvent, useState } from "react";
-import { NextRouter, useRouter } from "next/navigation";
-import { FiUser, FiMail, FiPhone, FiSend } from "react-icons/fi";
+import { NextPage } from "next";
+import { usePathname } from "next/navigation";
 import { sendMessage } from "@/actions/sendMessage";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+import { FiUser, FiMail, FiPhone, FiSend } from "react-icons/fi";
 
-const ContactSection = () => {
+
+interface ContactSectionProps {
+    title: string;
+}
+
+
+
+const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
     const [formData, setFormData] = useState({
         fullname: "",
         email: "",
         phone_number: "",
         content: "",
     });
+
+    const pathname = usePathname();
 
     const [phoneError, setPhoneError] = useState("");
     const router = useRouter();
@@ -47,7 +58,7 @@ const ContactSection = () => {
 
             <header className="text-center relative mb-12">
                 <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-                    Contact Us - Get in Touch
+                    {title}
                 </h1>
                 <p className="text-gray-600 text-lg max-w-2xl mx-auto">
                     Have questions or feedback? We’re here to help! Fill out the form below and we’ll get back to you.
@@ -150,7 +161,6 @@ const ContactSection = () => {
                         >
                             <FiSend size={18} aria-hidden="true" /> Send Message
                         </button>
-
                         <button
                             type="button"
                             className="w-full sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
@@ -159,6 +169,16 @@ const ContactSection = () => {
                         >
                             <FiPhone size={18} aria-hidden="true" /> Contact My Office
                         </button>
+
+                        { pathname !== "/contact-us" &&
+                            <button
+                                type="button"
+                                className="w-full sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
+                                title="Contact our office"
+                            >
+                                <FiPhone size={18} aria-hidden="true" /> Contact My Office
+                            </button>
+                        }
                     </div>
                 </form>
             </div>
