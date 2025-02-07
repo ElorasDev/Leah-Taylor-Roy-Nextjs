@@ -27,7 +27,7 @@ export const Menu: MenuItem[] = [
             },
             {
                 id: 2,
-                title: "News & Media",
+                title: "News",
                 pathname: "/news"
             },
             {
@@ -42,7 +42,7 @@ export const Menu: MenuItem[] = [
             },
             {
                 id: 5,
-                title: "Contact Leah",
+                title: "Contact Us",
                 pathname: "/contact-us",
             },
             {

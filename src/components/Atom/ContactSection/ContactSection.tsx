@@ -22,9 +22,9 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
     });
 
     const pathname = usePathname();
+    const router = useRouter();
 
     const [phoneError, setPhoneError] = useState("");
-    const router = useRouter();
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -161,20 +161,12 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
                         >
                             <FiSend size={18} aria-hidden="true" /> Send Message
                         </button>
-                        <button
-                            type="button"
-                            className="w-full sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
-                            title="Contact our office"
-                            onClick={() => router.push("/contact-us")}
-                        >
-                            <FiPhone size={18} aria-hidden="true" /> Contact My Office
-                        </button>
-
                         { pathname !== "/contact-us" &&
                             <button
                                 type="button"
                                 className="w-full sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
                                 title="Contact our office"
+                                onClick={() => router.push("/contact-us")}
                             >
                                 <FiPhone size={18} aria-hidden="true" /> Contact My Office
                             </button>
