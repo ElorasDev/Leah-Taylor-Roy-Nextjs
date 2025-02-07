@@ -23,13 +23,13 @@ export const menu: MenuItem[] = [
     },
     {
         id: 3,
-        title: "News & Media",
+        title: "News",
         pathname: "/news"
     },
     {
         id: 4,
-        title: "Contact",
-        pathname: "/contact"
+        title: "Contact Us",
+        pathname: "/contact-us"
     },
     {
         id: 5,

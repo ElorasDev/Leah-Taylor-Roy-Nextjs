@@ -8,7 +8,7 @@ const Services = () => {
 
     return (
         <section className="max-w-4xl mx-auto py-10 px-4">
-            <h1 className="text-3xl font-bold text-center mb-6">Our Services</h1>
+            <h1 className="text-3xl font-bold text-center mb-6">MP Services</h1>
 
             {/* Tab List */}
             <div

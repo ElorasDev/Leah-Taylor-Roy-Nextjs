@@ -31,9 +31,9 @@ const GovernmentServices = () => {
                     services, please contact our office{" "}
                     <button
                         type="button"
-                        className="w-full my-2 sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
+                        className="w-full my-3 sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
                         title="Contact our office"
-                        onClick={() => router.push("contact-leah") }
+                        onClick={() => router.push("/contact-us") }
                     >
                         <FiPhone size={18} aria-hidden="true" /> Contact Us
                     </button>
