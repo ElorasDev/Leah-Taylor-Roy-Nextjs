@@ -2,9 +2,8 @@ import Billboard from '@/components/Atom/Billboard/Billboard';
 import ContactSection from '@/components/Atom/ContactSection/ContactSection';
 import KeyInitiativesAndStatements from '@/components/Atom/KeyInitiativesAndStatements/KeyInitiativesAndStatements';
 import Summary from '@/components/Atom/Summary/Summary';
-
-// images
 import LeahImage from "../../../../public/images/Leah/leah-image.webp";
+import ParallaxComponent from '../ParallaxComponent/ParallaxComponent';
 
 const Landing = () => {
     return (
@@ -25,8 +24,11 @@ const Landing = () => {
                 <div className="!p-0 !m-0">
                     <KeyInitiativesAndStatements />
                 </div>
+                <div className="!p-0 my-16">
+                    <ParallaxComponent />
+                </div>
                 <ContactSection
-                title="Contact Us - Get in Touch"
+                    title="Contact Us - Get in Touch"
                 />
             </section>
         </>
