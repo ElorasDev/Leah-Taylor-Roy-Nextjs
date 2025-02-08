@@ -11,6 +11,7 @@ export const Parallax = forwardRef<HTMLDivElement, ParallaxProps>(
     const [offsetY, setOffsetY] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
 
+
     useEffect(() => {
       const handleResize = () => {
         setIsMobile(window.innerWidth <= 768);
@@ -25,7 +26,7 @@ export const Parallax = forwardRef<HTMLDivElement, ParallaxProps>(
     useEffect(() => {
       let ticking = false;
       const updateOffset = () => {
-        setOffsetY(window.scrollY * 0.2);
+        setOffsetY(window.scrollY);
         ticking = false;
       };
 
