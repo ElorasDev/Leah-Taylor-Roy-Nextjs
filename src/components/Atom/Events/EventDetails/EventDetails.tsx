@@ -169,12 +169,15 @@ const EventDetails: NextPage<EventDetails> = ({ params, initialEvent }) => {
                         </div>
 
                         {/* Event Content */}
-                        <div className="prose prose-indigo max-w-none text-neutral">
-                            <div
-                                dangerouslySetInnerHTML={{ __html: event.description }}
-                                className="[&_img]:rounded-xl [&_img]:shadow-md [&_img]:my-6 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-8 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-6"
-                            />
-                        </div>
+                        <article
+                            className="mt-8 text-gray-800 dark:text-gray-200 leading-relaxed text-lg 
+          prose prose-lg dark:prose-invert max-w-none
+          prose-headings:text-gray-900 dark:prose-headings:text-gray-100
+          prose-a:text-primary hover:prose-a:text-primary/80
+          prose-img:rounded-xl prose-img:shadow-lg
+          break-words
+          "
+                            dangerouslySetInnerHTML={{ __html: event.description }} />
 
                         {/* CTA Section */}
                         {event.status === "upcoming" &&
@@ -201,7 +204,7 @@ const EventDetails: NextPage<EventDetails> = ({ params, initialEvent }) => {
                         }
                     </div>
                 </article>
-            </section>
+            </section >
         </>
     );
 };
