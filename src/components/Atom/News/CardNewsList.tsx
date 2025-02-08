@@ -29,7 +29,7 @@ const CardNewsList: NextPage<INewsProps> = ({ initialNews }) => {
     //     }
     // );
     const [news] = useState<NewsItem[]>(initialNews);
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
     const debouncedSearchQuery = useDebounce(searchQuery, 500);
