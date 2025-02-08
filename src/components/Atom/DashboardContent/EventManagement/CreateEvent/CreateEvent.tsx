@@ -34,13 +34,24 @@ const CreateEvent: NextPage<ICreateEventProps> = ({ setHideCreateEventHandler, e
     const [endDatetime, setEndDatetime] = useState<string | null | Date>(event ? new Date(event.end_datetime) : null);
     const savedToken = Cookies.get('auth_token');
     const randomNumber = generateRandomFiveDigitNumber();
-
     const supabaseClient = useSupabaseClient();
 
+
+    const modules = {
+        toolbar: [
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
+            [{ align: ["right", "center", "justify"] }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"],
+        ],
+    };
+
+
     useEffect(() => {
-        const savedTitle = localStorage.getItem('draftTitle');
+        const savedTitle = localStorage.getItem('draftEventTitle');
         const savedContent = localStorage.getItem('draftContent');
-        const savedStatus = localStorage.getItem('draftStatus');
+        const savedStatus = localStorage.getItem('draftEventStatus');
         const savedLocation = localStorage.getItem('draftLocation');
         const savedStartDatetime = localStorage.getItem('draftStartDatetime');
         const savedEndDatetime = localStorage.getItem('draftEndDatetime');
@@ -54,26 +65,16 @@ const CreateEvent: NextPage<ICreateEventProps> = ({ setHideCreateEventHandler, e
     }, []);
 
     useEffect(() => {
-        const saveDraft = () => {
-            localStorage.setItem('draftTitle', title);
+        const interval = setInterval(() => {
+            localStorage.setItem('draftEventTitle', title);
             localStorage.setItem('draftDescription', description);
-            localStorage.setItem('draftStatus', status);
+            localStorage.setItem('draftEventStatus', status);
             localStorage.setItem('draftLocation', location);
             localStorage.setItem('draftStartDatetime', startDatetime ? startDatetime.toString() : '');
             localStorage.setItem('draftEndDatetime', endDatetime ? endDatetime.toString() : '');
-        };
+        }, 5000);
 
-        const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-            saveDraft();
-            e.preventDefault();
-            e.returnValue = '';
-        };
-
-        window.addEventListener('beforeunload', handleBeforeUnload);
-
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
+        return () => clearInterval(interval);
     }, [title, description, status, startDatetime, endDatetime, location]);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -137,9 +138,9 @@ const CreateEvent: NextPage<ICreateEventProps> = ({ setHideCreateEventHandler, e
 
                 seteventId(response ? response.toString() : null)
 
-                localStorage.removeItem('draftTitle');
+                localStorage.removeItem('draftEventTitle');
                 localStorage.removeItem('draftDescription');
-                localStorage.removeItem('draftStatus');
+                localStorage.removeItem('draftEventStatus');
                 localStorage.removeItem('draftLocation');
                 localStorage.removeItem('draftStartDatetime');
                 localStorage.removeItem('draftEndDatetime');
@@ -192,6 +193,7 @@ const CreateEvent: NextPage<ICreateEventProps> = ({ setHideCreateEventHandler, e
                 <ReactQuill
                     value={description}
                     onChange={setDescription}
+                    modules={modules}
                     className="block w-full h-fit focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
                 />
             </div>

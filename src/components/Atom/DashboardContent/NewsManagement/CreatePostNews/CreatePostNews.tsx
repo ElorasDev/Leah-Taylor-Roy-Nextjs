@@ -19,6 +19,8 @@ interface ICreatePostNewsProps {
 }
 
 const CreatePostNews: NextPage<ICreatePostNewsProps> = ({ setHideCreatePostHandler, post }) => {
+
+
     const { createNewsPost, updateNewsPost, loading, error } = useNewsPost();
     const [postId, setPostId] = useState<string | null>(post ? post.id.toString() : null);
     const [title, setTitle] = useState(post ? post.title : '');
@@ -27,8 +29,17 @@ const CreatePostNews: NextPage<ICreatePostNewsProps> = ({ setHideCreatePostHandl
     const [imageFile, setImageFile] = useState<File | null>(null);
     const savedToken = Cookies.get('auth_token');
     const randomNumber = generateRandomFiveDigitNumber();
-
     const supabaseClient = useSupabaseClient();
+
+    const modules = {
+        toolbar: [
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
+            [{ align: ["right", "center", "justify"] }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"],
+        ],
+    };
 
     useEffect(() => {
         const savedTitle = localStorage.getItem('draftTitle');
@@ -41,23 +52,13 @@ const CreatePostNews: NextPage<ICreatePostNewsProps> = ({ setHideCreatePostHandl
     }, []);
 
     useEffect(() => {
-        const saveDraft = () => {
+        const interval = setInterval(() => {
             localStorage.setItem('draftTitle', title);
             localStorage.setItem('draftContent', content);
             localStorage.setItem('draftStatus', status);
-        };
+        }, 3000);
 
-        const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-            saveDraft();
-            e.preventDefault();
-            e.returnValue = '';
-        };
-
-        window.addEventListener('beforeunload', handleBeforeUnload);
-
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
+        return () => clearInterval(interval);
     }, [title, content, status]);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -156,6 +157,7 @@ const CreatePostNews: NextPage<ICreatePostNewsProps> = ({ setHideCreatePostHandl
                 <ReactQuill
                     value={content}
                     onChange={setContent}
+                    modules={modules}
                     className="block w-full h-fit focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
                 />
             </div>

@@ -45,7 +45,7 @@ const Posts: NextPage<IPosts> = ({ post, isEditing, selectPost, section }) => {
     };
 
     const handleView = (id: number) => {
-        router.push(`/${section}/${id}`)
+        router.push(`/${section}/${post.title}/${id}`)
     };
 
     return (
