@@ -107,11 +107,7 @@ const EventsList:NextPage<EventListProps> = ({initialEvent}) => {
                     </div>
                 </div>
 
-                {isLoading || isFetching ? (
-                    <div className="flex justify-center items-center h-64">
-                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-                    </div>
-                ) : sortedAndFilteredNews.length === 0 ? (
+                { sortedAndFilteredNews.length === 0 ? (
                     <p className="text-center text-primary font-bold">No events available.</p>
                 ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

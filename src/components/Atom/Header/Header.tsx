@@ -164,14 +164,14 @@ const Header = () => {
                         </Link>
                       )
                         :
-                        <div className="flex justify-center" onClick={() => setOpenSection(!openSection)}>
+                        <div className="flex justify-center cursor-pointer" onClick={() => setOpenSection(!openSection)}>
                           {item.title} <FaChevronDown className="ml-1 mt-2 size-3" />
                         </div>
                     }
                     {item.sections && openSection && (
                       <div className="flex flex-col items-center space-y-2 py-2">
                         {item.sections.map((section: MenuItem) => (
-                          <Link key={section.id} href={`${section.pathname}`}>
+                          <Link key={section.id} onClick={toggleMenu} href={`${section.pathname}`}>
                             {section.title}
                           </Link>
                         ))}
