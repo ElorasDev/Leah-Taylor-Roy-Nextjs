@@ -1,10 +1,18 @@
+import { fetchEvents } from "@/actions/getAllEvents";
 import Events from "@/components/Molecule/Events/Events";
 
 
-const EventsPage = () => {
+export const revalidate = 60; 
+
+const EventsPage = async () => {
+
+  const event = await fetchEvents();
+
   return (
     <main className="min-h-screen">
-            <Events />
+            <Events 
+              event={event}
+            />
     </main>
   )
 }

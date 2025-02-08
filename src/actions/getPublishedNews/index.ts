@@ -6,6 +6,9 @@ export const fetchPublishedNews = async () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+        },
+        next: {
+          revalidate: 60,
         }
       }
     );

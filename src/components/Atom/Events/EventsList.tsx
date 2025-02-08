@@ -1,11 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { NextPage } from "next";
 import Head from "next/head";
+import { useQuery } from "@tanstack/react-query";
 import useDebounce from "@/hooks/useDebounce/useDebounce";
 import { fetchEvents } from "@/actions/getAllEvents";
 import CardNews from "../Events/CardEvent/CardEvent";
 
-interface EventsItem {
+type EventsItem = {
     id: number;
     title: string;
     description: string;
@@ -17,22 +19,26 @@ interface EventsItem {
     updated_at: string;
 }
 
-const EventsList = () => {
-    const [events, setEvents] = useState<EventsItem[]>([]);
-    const [loading, setLoading] = useState(true);
+interface EventListProps {
+    initialEvent: EventsItem[];
+}
+
+const EventsList:NextPage<EventListProps> = ({initialEvent}) => {
+
+
+    const { data, isLoading, isFetching, isError, error } = useQuery(
+        {
+            queryKey: ['eventList'],
+            queryFn: () => fetchEvents(),
+            initialData: initialEvent,
+        }
+    );
+
+    const [events] = useState<EventsItem[]>(data);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
     const [statusFilter, setStatusFilter] = useState<string>("all");
     const debouncedSearchQuery = useDebounce(searchQuery, 500);
-
-    useEffect(() => {
-        const getEvents = async () => {
-            const data = await fetchEvents();
-            setEvents(data);
-            setLoading(false);
-        };
-        getEvents();
-    }, []);
 
     const sortedAndFilteredNews = events
         .sort((a, b) => {
@@ -46,6 +52,15 @@ const EventsList = () => {
         .filter(item =>
             statusFilter === "all" ? true : item.status === statusFilter
         );
+
+        if (isError) {
+            return (
+                <div className="text-center text-primary">
+                    <p>An error occurred while loading data:</p>
+                    <pre>{error.message}</pre>
+                </div>
+            );
+        }
 
     return (
         <>
@@ -104,7 +119,7 @@ const EventsList = () => {
                     </div>
                 </div>
 
-                {loading ? (
+                {isLoading || isFetching ? (
                     <div className="flex justify-center items-center h-64">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
                     </div>

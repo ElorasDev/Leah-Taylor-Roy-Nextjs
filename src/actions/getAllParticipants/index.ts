@@ -1,9 +1,9 @@
 
 
-export const fetchAllParticipants = async (eventId: string, token: string) => {
+export const fetchAllParticipants = async (participantsId: string, token: string) => {
 
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/event-participants/${eventId}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dashboard/event-participants/${participantsId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const fetchAllParticipants = async (eventId: string, token: string) => {
         const data = await response.json();
         return data;
     } catch(error) {
-        console.error('Error fetching events:', error);
+        console.error('Error fetching participants:', error);
         return [];
     }
 
