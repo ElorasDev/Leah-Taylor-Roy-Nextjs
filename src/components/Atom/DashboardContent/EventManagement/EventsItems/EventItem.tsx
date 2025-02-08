@@ -80,7 +80,6 @@ const EventItem: NextPage<IEvent> = ({ event, isEditing, selectEvent }) => {
 
     const handleOpenModal = async (id: number) => {
         setParticipants(await fetchAllParticipants(id.toString(), savedToken!));
-        console.log(participants)
         setIsModalOpen(true);
     }
 
@@ -94,7 +93,7 @@ const EventItem: NextPage<IEvent> = ({ event, isEditing, selectEvent }) => {
     };
 
     const handleView = (id: number) => {
-        router.push(`/events/${id}`);
+        router.push(`/events/${event.title}/${id}`);
     };
 
     return (
