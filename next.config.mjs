@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  xperimental: {
-    isr: {
-      revalidate: 60, 
-    },
-  },
     images: {
         remotePatterns: [
             {
