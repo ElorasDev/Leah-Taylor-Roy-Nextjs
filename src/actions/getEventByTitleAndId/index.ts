@@ -1,11 +1,14 @@
 
-export const fetchEventByTitleAndId = async (newsTitle: string, newsId: string) => {
+export const fetchEventByTitleAndId = async (eventTitle: string, eventId: string) => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/event/${newsTitle}/${newsId}`,
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/event/${eventTitle}/${eventId}`,
             {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
+                },
+                next: {
+                    revalidate: 60,
                 }
             }
         );

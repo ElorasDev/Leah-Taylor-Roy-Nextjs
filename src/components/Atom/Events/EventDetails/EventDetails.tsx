@@ -1,14 +1,26 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import toast, { Toaster } from "react-hot-toast";
 import { fetchEventByTitleAndId } from "@/actions/getEventByTitleAndId";
 import { formatDate } from '@/utils/FormatData';
 import { FiCalendar, FiMapPin, FiClock, FiAlertCircle } from "react-icons/fi";
 import RegisterEventModal from "../RegisterEventModal/RegisterEventModal";
 import { useEvent } from "@/hooks/useEvent";
-import toast, { Toaster } from "react-hot-toast";
+
+
+
+interface EventDetails {
+    initialEvent: EventData[];
+    params: {
+        eventTitle: string;
+        eventId: string;
+    };
+}
+
 
 type EventData = {
     id: number;
@@ -28,35 +40,20 @@ type RegisterType = {
     email: string;
 }
 
-type EventDetailsParams = {
-    params: {
-        eventTitle: string;
-        eventId: string;
-    };
-};
 
-const EventDetails: NextPage<EventDetailsParams> = ({ params }) => {
+const EventDetails: NextPage<EventDetails> = ({ params, initialEvent }) => {
+
+    const { data, isLoading, isFetching, isError } = useQuery(
+        {
+            queryKey: ['eventDetails'],
+            queryFn: () => fetchEventByTitleAndId(params.eventTitle, params.eventId),
+            initialData: initialEvent,
+        }
+    );
+
     const { registerEvent } = useEvent();
-    const [event, setEvent] = useState<EventData | null>(null);
-    const [loadingPage, setLoadingPage] = useState<boolean>(true);
+    const [event] = useState<EventData>(data);;
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [errorPage, setErrorPage] = useState<string | null>(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                if (params?.eventTitle) {
-                    const eventData = await fetchEventByTitleAndId(params.eventTitle, params.eventId);
-                    setEvent(eventData.title ? eventData : null);
-                }
-            } catch {
-                setErrorPage('Failed to load event details');
-            } finally {
-                setLoadingPage(false);
-            }
-        };
-        fetchData();
-    }, [params]);
 
     const handleRegister = async (data: RegisterType) => {
         try {
@@ -87,7 +84,7 @@ const EventDetails: NextPage<EventDetailsParams> = ({ params }) => {
         eventStatus: event.status,
     } : null;
 
-    if (loadingPage) {
+    if (isLoading || isFetching) {
         return (
             <div className="max-w-3xl mx-auto py-28 px-4 animate-pulse">
                 <div className="h-96 w-full bg-gray-300 rounded-lg"></div>
@@ -98,7 +95,7 @@ const EventDetails: NextPage<EventDetailsParams> = ({ params }) => {
         );
     }
 
-    if (errorPage) {
+    if (isError) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
                 <div className="text-center max-w-md p-8 bg-white rounded-xl shadow-lg">

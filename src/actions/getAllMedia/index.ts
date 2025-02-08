@@ -8,13 +8,16 @@ export const fetchAllMedia = async () => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+            },
+            next: {
+                revalidate: 60,
             }
         }
         )
         const data = await response.json();
         return data;
     } catch (error) {
-        console.error('Error fetching events:', error);
+        console.error('Error fetching media:', error);
         return [];
     }
 

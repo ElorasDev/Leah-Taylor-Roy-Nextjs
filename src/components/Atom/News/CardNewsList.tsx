@@ -1,8 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
-import CardNews from "./CardNews/CardNews";
-import { fetchPublishedNews } from "@/actions/getPublishedNews";
+import { useState } from "react";
+import { NextPage } from "next";
 import Head from "next/head";
+import { useQuery } from "@tanstack/react-query";
+import { fetchPublishedNews } from "@/actions/getPublishedNews";
+import CardNews from "./CardNews/CardNews";
 import useDebounce from "@/hooks/useDebounce/useDebounce";
 
 interface NewsItem {
@@ -10,27 +12,26 @@ interface NewsItem {
     title: string;
     content: string;
     index_image_url: string;
-    like: number;
     updated_at: string;
 }
 
-const CardNewsList = () => {
-    
-    const [news, setNews] = useState<NewsItem[]>([]);
-    const [loading, setLoading] = useState(true);
+interface INewsProps {
+    initialNews: NewsItem[];
+}
+
+const CardNewsList: NextPage<INewsProps> = ({ initialNews }) => {
+
+    const { data, isLoading, isFetching, isError, error } = useQuery(
+        {
+            queryKey: ['publishedNews'],
+            queryFn: () => fetchPublishedNews(),
+            initialData: initialNews,
+        }
+    );
+    const [news] = useState<NewsItem[]>(data);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
     const debouncedSearchQuery = useDebounce(searchQuery, 500);
-
-    // Fetch news and sort by updated_at
-    useEffect(() => {
-        const getNews = async () => {
-            const data = await fetchPublishedNews();
-            setNews(data);
-            setLoading(false);
-        };
-        getNews();
-    }, []);
 
     // Sort news by date (newest first) and filter by debounced search query
     const sortedAndFilteredNews = news
@@ -44,6 +45,16 @@ const CardNewsList = () => {
         .filter(item =>
             item.title.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
         );
+
+    if (isError) {
+        return (
+            <div className="text-center text-primary">
+                <p>An error occurred while loading data:</p>
+                <pre>{error.message}</pre>
+            </div>
+        );
+    }
+
 
     return (
         <>
@@ -91,7 +102,7 @@ const CardNewsList = () => {
 
 
                 {/* Loading spinner or news content */}
-                {loading ? (
+                {isLoading || isFetching ? (
                     <div className="flex justify-center items-center h-64">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
                     </div>

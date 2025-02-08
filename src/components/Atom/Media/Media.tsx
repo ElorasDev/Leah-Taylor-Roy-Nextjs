@@ -1,29 +1,55 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { fetchAllMedia } from "@/actions/getAllMedia";
 import MediaCard from "@/components/Atom/Media/MediaCrad/MediaCard";
+import { NextPage } from "next";
+import { useQuery } from "@tanstack/react-query";
+
+interface IMediaProps {
+  initialMedia: MediaItem[];
+}
 
 type MediaType = 'image' | 'video';
 
-interface MediaItem {
+type MediaItem = {
   id: string;
   file_type: MediaType;
   path: string;
   updated_at: string;
   alt?: string;
 }
+const Media: NextPage<IMediaProps> = ({ initialMedia }) => {
 
-const Media = () => {
-  const [mediaData, setMediaData] = useState<MediaItem[]>([]);
 
-  useEffect(() => {
-    const getMedia = async () => {
-      const data = await fetchAllMedia();
-      setMediaData(data);
-    };
-    getMedia();
-  }, []);
+  const { data, isLoading, isFetching, isError, error } = useQuery(
+    {
+      queryKey: ['media'],
+      queryFn: () => fetchAllMedia(),
+      initialData: initialMedia,
+    }
+  );
+
+
+  const [mediaData] = useState<MediaItem[]>(data);
+
+
+  if (isError) {
+    return (
+      <div className="text-center text-primary">
+        <p>An error occurred while loading data:</p>
+        <pre>{error.message}</pre>
+      </div>
+    );
+  }
+
+
+  if (isLoading || isFetching) {
+    <div className="flex justify-center items-center h-64">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+    </div>
+  }
+
 
   return (
     <section className="container mx-auto p-4">
