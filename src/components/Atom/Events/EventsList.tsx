@@ -42,10 +42,10 @@ const EventsList:NextPage<EventListProps> = ({initialEvent}) => {
             statusFilter === "all" ? true : item.status === statusFilter
         );
 
-        if (initialEvent) {
+        if (!initialEvent) {
             return (
                 <div className="text-center text-primary">
-                    <p>An error occurred while loading data:</p>
+                    <p>An error occurred while loading data</p>
                 </div>
             );
         }
