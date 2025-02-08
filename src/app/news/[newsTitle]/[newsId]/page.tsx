@@ -17,7 +17,7 @@ export default async function NewsTitle({ params }: NewsTitleParams) {
     <main className="min-h-screen">
       <NewsPost
         initialNews={news}
-        params={{ newsTitle: params.newsTitle, newsId: params.newsId }}
+        params={{ newsTitle: params.newsTitle }}
       />
     </main>
   );

@@ -2,9 +2,7 @@
 import { useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-import { useQuery } from "@tanstack/react-query";
 import useDebounce from "@/hooks/useDebounce/useDebounce";
-import { fetchEvents } from "@/actions/getAllEvents";
 import CardNews from "../Events/CardEvent/CardEvent";
 
 type EventsItem = {
@@ -25,16 +23,7 @@ interface EventListProps {
 
 const EventsList:NextPage<EventListProps> = ({initialEvent}) => {
 
-
-    const { data, isLoading, isFetching, isError, error } = useQuery(
-        {
-            queryKey: ['eventList'],
-            queryFn: () => fetchEvents(),
-            initialData: initialEvent,
-        }
-    );
-
-    const [events] = useState<EventsItem[]>(data);
+    const [events] = useState<EventsItem[]>(initialEvent);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
     const [statusFilter, setStatusFilter] = useState<string>("all");
@@ -53,11 +42,10 @@ const EventsList:NextPage<EventListProps> = ({initialEvent}) => {
             statusFilter === "all" ? true : item.status === statusFilter
         );
 
-        if (isError) {
+        if (initialEvent) {
             return (
                 <div className="text-center text-primary">
                     <p>An error occurred while loading data:</p>
-                    <pre>{error.message}</pre>
                 </div>
             );
         }
@@ -119,11 +107,7 @@ const EventsList:NextPage<EventListProps> = ({initialEvent}) => {
                     </div>
                 </div>
 
-                {isLoading || isFetching ? (
-                    <div className="flex justify-center items-center h-64">
-                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-                    </div>
-                ) : sortedAndFilteredNews.length === 0 ? (
+                { sortedAndFilteredNews.length === 0 ? (
                     <p className="text-center text-primary font-bold">No events available.</p>
                 ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

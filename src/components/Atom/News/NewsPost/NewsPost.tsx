@@ -4,32 +4,25 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { formatDate } from "@/utils/FormatData";
-import { fetchPublishedNewsByTitle } from "@/actions/getNewsByTitle";
-import { useQuery } from "@tanstack/react-query";
 
-interface INewsPostParams {
-  initialNews: NewsData[];
+interface INewsPostProps {
+  initialNews: NewsData;
   params: {
     newsTitle: string;
-    newsId: string;
-  };
+  }
 };
 
 type NewsData = {
+  id: number;
   title: string;
   content: string;
   index_image_url: string;
   updated_at: string;
 };
 
-const NewsPost: NextPage<INewsPostParams> = ({ initialNews, params }) => {
-  const { data, isLoading, isFetching, isError, error } = useQuery({
-    queryKey: ['publishedNewsByTitle'],
-    queryFn: () => fetchPublishedNewsByTitle(params.newsTitle, params.newsId),
-    initialData: initialNews,
-  });
+const NewsPost: NextPage<INewsPostProps> = ({ initialNews, params }) => {
 
-  const [news] = useState<NewsData>(data);
+  const [news] = useState<NewsData>(initialNews);
 
   // Structured Data for SEO
   const structuredData = news ? {
@@ -44,30 +37,7 @@ const NewsPost: NextPage<INewsPostParams> = ({ initialNews, params }) => {
     },
   } : null;
 
-  if (isLoading || isFetching) {
-    return (
-      <div className="max-w-4xl mx-auto py-12 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="animate-pulse space-y-8">
-          <div className="h-96 w-full bg-gray-200 rounded-lg" />
-          <div className="space-y-4">
-            <div className="h-12 bg-gray-200 rounded w-3/4" />
-            <div className="h-4 bg-gray-200 rounded w-1/3" />
-            <div className="h-4 bg-gray-200 rounded w-full" />
-            <div className="h-4 bg-gray-200 rounded w-5/6" />
-            <div className="h-4 bg-gray-200 rounded w-2/3" />
-          </div>
-        </div>
-      </div>
-    );
-  }
 
-  if (isError) {
-    return (
-      <div className="text-center py-28">
-        <p className="text-primary font-bold text-xl">{error.message}</p>
-      </div>
-    );
-  }
 
   if (news === null) {
     return (
@@ -90,7 +60,7 @@ const NewsPost: NextPage<INewsPostParams> = ({ initialNews, params }) => {
         <meta property="og:description" content={news?.content?.slice(0, 150) || ''} />
         <meta property="og:image" content={news.index_image_url} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://example.com/news/${params.newsTitle}`} />
+        <meta property="og:url" content={`https://leahtaylorroymp-development.vercel.app/news/${params.newsTitle}`} />
 
       </Head>
 
