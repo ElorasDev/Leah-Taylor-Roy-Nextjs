@@ -2,8 +2,6 @@
 import { useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-// import { useQuery } from "@tanstack/react-query";
-// import { fetchPublishedNews } from "@/actions/getPublishedNews";
 import CardNews from "./CardNews/CardNews";
 import useDebounce from "@/hooks/useDebounce/useDebounce";
 
@@ -21,15 +19,7 @@ interface INewsProps {
 
 const CardNewsList: NextPage<INewsProps> = ({ initialNews }) => {
 
-    // const { data, isLoading, isFetching, isError, error } = useQuery(
-    //     {
-    //         queryKey: ['publishedNews'],
-    //         queryFn: () => fetchPublishedNews(),
-    //         initialData: initialNews,
-    //     }
-    // );
     const [news] = useState<NewsItem[]>(initialNews);
-    const [loading] = useState(false);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
     const debouncedSearchQuery = useDebounce(searchQuery, 500);
@@ -47,14 +37,16 @@ const CardNewsList: NextPage<INewsProps> = ({ initialNews }) => {
             item.title.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
         );
 
-    // if (isError) {
-    //     return (
-    //         <div className="text-center text-primary">
-    //             <p>An error occurred while loading data:</p>
-    //             <pre>{error.message}</pre>
-    //         </div>
-    //     );
-    // }
+
+        if (!initialNews) {
+            return (
+              <div className="text-center py-28">
+                <p className="text-primary font-bold text-xl">
+                    Posts Not found!
+                </p>
+              </div>
+            );
+          }
 
 
     return (
@@ -103,11 +95,7 @@ const CardNewsList: NextPage<INewsProps> = ({ initialNews }) => {
 
 
                 {/* Loading spinner or news content */}
-                {loading ? (
-                    <div className="flex justify-center items-center h-64">
-                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-                    </div>
-                ) : sortedAndFilteredNews.length === 0 ? (
+                {sortedAndFilteredNews.length === 0 ? (
                     <p className="text-center text-primary font-bold">No news available.</p>
                 ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

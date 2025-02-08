@@ -3,9 +3,7 @@ import { useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useQuery } from "@tanstack/react-query";
 import toast, { Toaster } from "react-hot-toast";
-import { fetchEventByTitleAndId } from "@/actions/getEventByTitleAndId";
 import { formatDate } from '@/utils/FormatData';
 import { FiCalendar, FiMapPin, FiClock, FiAlertCircle } from "react-icons/fi";
 import RegisterEventModal from "../RegisterEventModal/RegisterEventModal";
@@ -14,7 +12,7 @@ import { useEvent } from "@/hooks/useEvent";
 
 
 interface EventDetails {
-    initialEvent: EventData[];
+    initialEvent: EventData;
     params: {
         eventTitle: string;
         eventId: string;
@@ -43,16 +41,8 @@ type RegisterType = {
 
 const EventDetails: NextPage<EventDetails> = ({ params, initialEvent }) => {
 
-    const { data, isLoading, isFetching, isError } = useQuery(
-        {
-            queryKey: ['eventDetails'],
-            queryFn: () => fetchEventByTitleAndId(params.eventTitle, params.eventId),
-            initialData: initialEvent,
-        }
-    );
-
     const { registerEvent } = useEvent();
-    const [event] = useState<EventData>(data);;
+    const [event] = useState<EventData>(initialEvent);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleRegister = async (data: RegisterType) => {
@@ -84,18 +74,7 @@ const EventDetails: NextPage<EventDetails> = ({ params, initialEvent }) => {
         eventStatus: event.status,
     } : null;
 
-    if (isLoading || isFetching) {
-        return (
-            <div className="max-w-3xl mx-auto py-28 px-4 animate-pulse">
-                <div className="h-96 w-full bg-gray-300 rounded-lg"></div>
-                <div className="h-8 w-2/3 bg-gray-300 mt-6 rounded"></div>
-                <div className="h-4 w-1/2 bg-gray-300 mt-2 rounded"></div>
-                <div className="h-24 w-full bg-gray-300 mt-6 rounded"></div>
-            </div>
-        );
-    }
-
-    if (isError) {
+    if (!initialEvent) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
                 <div className="text-center max-w-md p-8 bg-white rounded-xl shadow-lg">
