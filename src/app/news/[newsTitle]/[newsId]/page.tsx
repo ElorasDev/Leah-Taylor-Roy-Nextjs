@@ -1,4 +1,5 @@
 import Head from "next/head";
+import type { Metadata } from "next";
 import NewsPost from "@/components/Atom/News/NewsPost/NewsPost";
 import { fetchPublishedNewsByTitle } from "@/actions/getNewsByTitle";
 
@@ -77,4 +78,24 @@ export default async function NewsTitle({ params }: NewsTitleParams) {
       </main>
     </>
   );
+}
+
+
+
+export const generateMetadata = async ({ params }: NewsTitleParams): Promise<Metadata> => {
+
+  const news = await fetchPublishedNewsByTitle(params.newsTitle, params.newsId);
+
+  return {
+    title: news.title,
+    description: news.description,
+    authors: {
+      name: "Leah Taylor Roy"
+    },
+    other: {
+      type: "News",
+      image: news.index_image_url,
+      eventStatus: news.status,
+    }
+  }
 }

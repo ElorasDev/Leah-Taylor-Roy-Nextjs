@@ -1,5 +1,12 @@
 import Head from "next/head";
 import Landing from "@/components/Molecule/Landing/Landing";
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Leah Taylor Roy | Official Website",
+  description: "Discover information about Leah Taylor Roy, her key initiatives, and contact details. Explore her parliamentary work and learn more about her public service commitments.",
+};
 
 export default function Home() {
   return (
@@ -7,9 +14,6 @@ export default function Home() {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-        <title>Landing Page | Official Website</title>
-
         <meta
           name="description"
           content="Discover information about Leah Taylor Roy, her key initiatives, and contact details. Explore her parliamentary work and learn more about her public service commitments."

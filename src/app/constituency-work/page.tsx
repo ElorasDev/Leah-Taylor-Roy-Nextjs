@@ -1,5 +1,12 @@
 import Head from "next/head";
+import type { Metadata } from "next";
 import ConstituencyWork from "@/components/Molecule/ConstituencyWork/ConstituencyWork";
+
+
+export const metadata: Metadata = {
+    title: "Leah Taylor Roy | Constituency Work",
+    description: "Explore the services and initiatives provided by Leah Taylor Roy for the community. Learn more about the constituency work and how it benefits the residents.",
+  };  
 
 const ConstituencyWorkPage = () => {
     return (
@@ -8,7 +15,7 @@ const ConstituencyWorkPage = () => {
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                <title>Constituency Work | Leah Taylor Roy</title>
+                <title>Leah Taylor Roy | Constituency Work</title>
                 <meta name="description" content="Explore the services and initiatives provided by Leah Taylor Roy for the community. Learn more about the constituency work and how it benefits the residents." />
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <link rel="canonical" href="https://leahtaylorroymp-development.vercel.app/constituency-work" />
