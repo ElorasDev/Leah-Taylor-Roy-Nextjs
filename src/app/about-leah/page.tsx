@@ -1,5 +1,14 @@
 import Head from "next/head";
+import type { Metadata } from "next";
 import AboutLeah from "@/components/Molecule/AboutLeah/AboutLeah";
+
+
+export const metadata: Metadata = {
+    title: "Leah Taylor Roy | About Leah Taylor Roy",
+    description: "Learn more about Leah Taylor Roy, her background, political views, and contributions to the community."
+};
+
+
 
 const AboutLeahPage = () => {
     return (
@@ -8,7 +17,7 @@ const AboutLeahPage = () => {
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                <title>About Leah Taylor Roy | Official Website</title>
+                <title>Leah Taylor Roy | About Leah Taylor Roy</title>
 
                 <meta
                     name="description"

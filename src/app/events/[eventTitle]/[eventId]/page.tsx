@@ -1,4 +1,5 @@
 import Head from "next/head";
+import type { Metadata } from 'next'
 import EventDetails from "@/components/Atom/Events/EventDetails/EventDetails";
 import { fetchEventByTitleAndId } from "@/actions/getEventByTitleAndId";
 
@@ -75,4 +76,25 @@ export default async function EventDetail({ params }: EventDetailsParams) {
       </main>
     </>
   );
+}
+
+export const generateMetadata = async ({ params }: EventDetailsParams): Promise<Metadata> => {
+
+  const event = await fetchEventByTitleAndId(params.eventTitle, params.eventId);
+
+  return {
+    title: event.title,
+    description: event.description,
+    authors: {
+      name: "Leah Taylor Roy"
+    },
+    other: {
+      type: "Event",
+      startDate: event.start_datetime,
+      endDate: event.end_datetime,
+      location: event.location,
+      image: event.index_image_url,
+      eventStatus: event.status,
+    }
+  }
 }

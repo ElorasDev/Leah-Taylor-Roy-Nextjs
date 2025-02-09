@@ -1,8 +1,16 @@
 import Head from "next/head";
+import type { Metadata } from "next";
 import { fetchEvents } from "@/actions/getAllEvents";
 import Events from "@/components/Molecule/Events/Events";
 
+
+export const metadata: Metadata = {
+  title: "Leah Taylor Roy | Events",
+  description: "Stay updated with events, gatherings, and community meetings. Check out the latest event details here.",
+};
+
 export const revalidate = 60;
+
 
 const EventsPage = async () => {
   const event = await fetchEvents();
@@ -13,7 +21,7 @@ const EventsPage = async () => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Events | Official Website</title>
+        <title>Leah Taylor Roy | Events</title>
 
         <meta
           name="description"

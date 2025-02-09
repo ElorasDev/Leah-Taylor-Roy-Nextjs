@@ -1,6 +1,15 @@
 import Head from "next/head";
+import type { Metadata } from "next";
 import { fetchPublishedNews } from "@/actions/getPublishedNews";
 import News from "@/components/Molecule/News/News";
+
+
+
+export const metadata: Metadata = {
+  title: "Leah Taylor Roy | Latest News",
+  description: "Stay updated with the latest news and announcements from Leah Taylor Roy. Read about recent developments, community updates, and more.",
+};
+
 
 export const revalidate = 60;
 
@@ -13,10 +22,10 @@ const NewsPage = async () => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Latest News | Leah Taylor Roy</title>
-        <meta 
-          name="description" 
-          content="Stay updated with the latest news and announcements from Leah Taylor Roy. Read about recent developments, community updates, and more." 
+        <title>Leah Taylor Roy | Latest News</title>
+        <meta
+          name="description"
+          content="Stay updated with the latest news and announcements from Leah Taylor Roy. Read about recent developments, community updates, and more."
         />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="canonical" href="https://leahtaylorroymp-development.vercel.app/news" />
