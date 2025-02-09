@@ -5,7 +5,48 @@ import AboutLeah from "@/components/Molecule/AboutLeah/AboutLeah";
 
 export const metadata: Metadata = {
     title: "Leah Taylor Roy | About Leah Taylor Roy",
-    description: "Learn more about Leah Taylor Roy, her background, political views, and contributions to the community."
+    description:
+        "Learn more about Leah Taylor Roy, her background, political views, and contributions to the community.",
+    robots: "index, follow",
+    alternates: {
+        canonical: "https://leahtaylorroymp-development.vercel.app/about-leah",
+    },
+
+    openGraph: {
+        type: "profile",
+        url: "https://leahtaylorroymp-development.vercel.app/about",
+        title: "Leah Taylor Roy | About Leah Taylor Roy",
+        description:
+            "Learn more about Leah Taylor Roy, her background, political views, and contributions to the community.",
+        siteName: "Leah Taylor Roy",
+        images: [
+            {
+                url: "https://leahtaylorroymp-development.vercel.app/images/leah-profile.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Leah Taylor Roy - About Page",
+            },
+        ],
+        locale: "en_US",
+    },
+
+    // 🔹 Twitter Card برای بهینه‌سازی نمایش در توییتر
+    twitter: {
+        card: "summary_large_image",
+        site: "@LeahTaylorRoy",
+        creator: "@LeahTaylorRoy",
+        title: "Leah Taylor Roy | About Leah Taylor Roy",
+        description:
+            "Learn more about Leah Taylor Roy, her background, political views, and contributions to the community.",
+        images: [
+            "https://leahtaylorroymp-development.vercel.app/images/leah/leah-profile.jpg",
+        ],
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon.ico",
+        apple: "/apple-touch-icon.png",
+    },
 };
 
 

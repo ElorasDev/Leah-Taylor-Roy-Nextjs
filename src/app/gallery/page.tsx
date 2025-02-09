@@ -4,8 +4,47 @@ import Gallery from '@/components/Molecule/Gallery/Gallery';
 
 
 export const metadata: Metadata = {
-  title: "Leah Taylor Roy | Gallery",
-  description: "Immerse yourself in the Gallery of Leah Taylor Roy. Explore a curated collection of vibrant photos capturing memorable events, community engagements, and inspiring moments that showcase her leadership and dedication to public service. Each image tells a unique story, offering a visual journey through her impactful work and the dynamic communities she serves.",
+  title: "Leah Taylor Roy | Gallery of Leadership & Community Engagement",
+  description:
+    "Explore the vibrant gallery of Leah Taylor Roy, featuring memorable photos from key events, community engagements, and inspiring moments. Discover the stories behind the images that reflect her leadership and commitment to public service.",
+
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://leahtaylorroymp-development.vercel.app/gallery",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://leahtaylorroymp-development.vercel.app/gallery",
+    title: "Leah Taylor Roy | Gallery of Leadership & Community Engagement",
+    description:
+      "Explore the vibrant gallery of Leah Taylor Roy, featuring memorable photos from key events, community engagements, and inspiring moments. Discover the stories behind the images that reflect her leadership and commitment to public service.",
+    siteName: "Leah Taylor Roy",
+    images: [
+      {
+        url: "https://leahtaylorroymp-development.vercel.app/images/gallery-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Leah Taylor Roy Gallery",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@LeahTaylorRoy",
+    creator: "@LeahTaylorRoy",
+    title: "Leah Taylor Roy | Gallery of Leadership & Community Engagement",
+    description:
+      "Explore the vibrant gallery of Leah Taylor Roy, featuring memorable photos from key events, community engagements, and inspiring moments. Discover the stories behind the images that reflect her leadership and commitment to public service.",
+    images: [
+      "https://leahtaylorroymp-development.vercel.app/images/gallery-preview.jpg",
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 

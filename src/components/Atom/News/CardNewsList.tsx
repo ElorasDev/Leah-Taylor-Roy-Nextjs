@@ -53,14 +53,13 @@ const CardNewsList: NextPage<INewsProps> = ({ initialNews }) => {
         <>
             {/* SEO Meta Tags */}
             <Head>
-                <title>Latest News - Stay Updated</title>
                 <meta name="description" content="Read the latest news updates and stay informed about trending topics." />
                 <meta name="keywords" content="news, latest news, trending news, updates, headlines" />
                 <meta name="author" content="Leah Taylor Roy" />
             </Head>
 
             <section className="max-w-6xl mx-auto py-10 px-4">
-                <h1 className="text-3xl font-bold text-center mb-6">Latest News</h1>
+                <h1 className="text-3xl font-bold text-center mb-6">Latest News & Announcements</h1>
                 <article>
                     <p className="text-lg text-center text-neutral mb-6">
                         Dedicated to supporting the residents and improving our constituency

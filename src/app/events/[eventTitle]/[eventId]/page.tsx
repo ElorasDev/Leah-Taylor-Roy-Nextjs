@@ -1,5 +1,5 @@
 import Head from "next/head";
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 import EventDetails from "@/components/Atom/Events/EventDetails/EventDetails";
 import { fetchEventByTitleAndId } from "@/actions/getEventByTitleAndId";
 

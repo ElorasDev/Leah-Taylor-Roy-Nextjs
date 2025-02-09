@@ -5,9 +5,49 @@ import Events from "@/components/Molecule/Events/Events";
 
 
 export const metadata: Metadata = {
-  title: "Leah Taylor Roy | Events",
-  description: "Stay updated with events, gatherings, and community meetings. Check out the latest event details here.",
+  title: "Leah Taylor Roy | Events & Community Gatherings",
+  description:
+    "Stay updated with upcoming events, gatherings, and community meetings hosted by Leah Taylor Roy. Find details, dates, and locations here.",
+
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://leahtaylorroymp-development.vercel.app/events",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://leahtaylorroymp-development.vercel.app/events",
+    title: "Leah Taylor Roy | Events & Community Gatherings",
+    description:
+      "Stay updated with upcoming events, gatherings, and community meetings hosted by Leah Taylor Roy. Find details, dates, and locations here.",
+    siteName: "Leah Taylor Roy",
+    images: [
+      {
+        url: "https://leahtaylorroymp-development.vercel.app/images/events-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Leah Taylor Roy - Events & Gatherings",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@LeahTaylorRoy",
+    creator: "@LeahTaylorRoy",
+    title: "Leah Taylor Roy | Events & Community Gatherings",
+    description:
+      "Stay updated with upcoming events, gatherings, and community meetings hosted by Leah Taylor Roy. Find details, dates, and locations here.",
+    images: [
+      "https://leahtaylorroymp-development.vercel.app/images/events-banner.jpg",
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
+
 
 export const revalidate = 60;
 

@@ -10,7 +10,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-US">
       <body className="antialiased bg-[#F2F3F4]">
         <ReactQueryProvider>
           <SupabaseProvider>
