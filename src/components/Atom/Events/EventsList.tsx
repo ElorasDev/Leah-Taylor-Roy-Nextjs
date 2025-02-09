@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { NextPage } from "next";
-import Head from "next/head";
 import useDebounce from "@/hooks/useDebounce/useDebounce";
 import CardNews from "../Events/CardEvent/CardEvent";
 
@@ -52,13 +51,6 @@ const EventsList:NextPage<EventListProps> = ({initialEvent}) => {
 
     return (
         <>
-            <Head>
-                <title>Events - Stay Updated</title>
-                <meta name="description" content="Stay updated with the latest events and happenings. Find out what's going on around you." />
-                <meta name="keywords" content="events, latest events, upcoming events, event updates, event news" />
-                <meta name="author" content="Leah Taylor Roy" />
-            </Head>
-
             <section className="max-w-6xl mx-auto py-10 px-4">
                 <h1 className="text-3xl font-bold text-center mb-6">Events</h1>
                 <article>

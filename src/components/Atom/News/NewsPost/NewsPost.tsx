@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { NextPage } from "next";
-import Head from "next/head";
 import Image from "next/image";
 import { formatDate } from "@/utils/FormatData";
 
@@ -20,23 +19,9 @@ type NewsData = {
   updated_at: string;
 };
 
-const NewsPost: NextPage<INewsPostProps> = ({ initialNews, params }) => {
+const NewsPost: NextPage<INewsPostProps> = ({ initialNews }) => {
 
   const [news] = useState<NewsData>(initialNews);
-
-  // Structured Data for SEO
-  const structuredData = news ? {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    headline: news.title,
-    datePublished: news.updated_at,
-    image: news.index_image_url,
-    author: {
-      "@type": "Person",
-      "name": "Leah Taylor Roy"
-    },
-  } : null;
-
 
 
   if (news === null) {
@@ -49,28 +34,8 @@ const NewsPost: NextPage<INewsPostProps> = ({ initialNews, params }) => {
 
   return (
     <>
-      <Head>
-
-        <title>{`${news.title} - Leah Taylor Roy`}</title>
-        <meta name="description" content={`${news.title} - Read the latest news by Leah Taylor Roy.`} />
-        <meta name="keywords" content={`${news.title}, news, latest updates`} />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content={news.title} />
-        <meta property="og:description" content={news?.content?.slice(0, 150) || ''} />
-        <meta property="og:image" content={news.index_image_url} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://leahtaylorroymp-development.vercel.app/news/${params.newsTitle}`} />
-
-      </Head>
 
       <section className="max-w-4xl mx-auto py-12 md:py-20 px-4 sm:px-6 lg:px-8">
-        {structuredData && (
-          <script 
-            type="application/ld+json" 
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} 
-          />
-        )}
 
         {/* News Image */}
         <div className="relative my-10 overflow-hidden rounded-xl md:h-[550px] h-96 w-full shadow-xl group">

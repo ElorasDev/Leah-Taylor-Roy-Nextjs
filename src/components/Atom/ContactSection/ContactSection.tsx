@@ -1,17 +1,15 @@
 "use client";
 import { NextPage } from "next";
 import { usePathname } from "next/navigation";
+import DOMPurify from "dompurify";
 import { sendMessage } from "@/actions/sendMessage";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FiUser, FiMail, FiPhone, FiSend } from "react-icons/fi";
 
-
 interface ContactSectionProps {
     title: string;
 }
-
-
 
 const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
     const [formData, setFormData] = useState({
@@ -25,6 +23,11 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
     const router = useRouter();
 
     const [phoneError, setPhoneError] = useState("");
+    const [formErrors, setFormErrors] = useState({
+        fullname: "",
+        email: "",
+        content: "",
+    });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -38,15 +41,48 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
             }
         }
 
+        const sanitizedValue = DOMPurify.sanitize(value);
+
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value,
+            [name]: sanitizedValue,
         }));
+    };
+
+    const validateForm = () => {
+        const { fullname, email, content } = formData;
+        let valid = true;
+        const errors = { fullname: "", email: "", content: "" };
+
+        if (!fullname.trim()) {
+            errors.fullname = "Fullname is required";
+            valid = false;
+        }
+
+        if (!email.trim()) {
+            errors.email = "Email is required";
+            valid = false;
+        } else {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errors.email = "Please enter a valid email address";
+                valid = false;
+            }
+        }
+
+        if (!content.trim()) {
+            errors.content = "Message is required";
+            valid = false;
+        }
+
+        setFormErrors(errors);
+        return valid;
     };
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        if (phoneError) return;
+        if (phoneError || !validateForm()) return;
+        
         const { fullname, email, phone_number, content } = formData;
         await sendMessage(fullname, email, phone_number, content);
         setFormData({ fullname: "", email: "", phone_number: "", content: "" });
@@ -87,6 +123,7 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
                                 aria-label="Full Name"
                             />
                         </div>
+                        {formErrors.fullname && <p className="text-red-500 text-sm mt-1">{formErrors.fullname}</p>}
                     </div>
 
                     <div className="relative">
@@ -109,6 +146,7 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
                                 aria-label="Email Address"
                             />
                         </div>
+                        {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
                     </div>
 
                     <div className="relative">
@@ -151,6 +189,7 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
                             required
                             aria-label="content"
                         ></textarea>
+                        {formErrors.content && <p className="text-red-500 text-sm mt-1">{formErrors.content}</p>}
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 mt-6">
@@ -161,7 +200,7 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
                         >
                             <FiSend size={18} aria-hidden="true" /> Send Message
                         </button>
-                        { pathname !== "/contact-us" &&
+                        {pathname !== "/contact-us" && (
                             <button
                                 type="button"
                                 className="w-full sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"
@@ -170,7 +209,7 @@ const ContactSection: NextPage<ContactSectionProps> = ({ title }) => {
                             >
                                 <FiPhone size={18} aria-hidden="true" /> Contact My Office
                             </button>
-                        }
+                        )}
                     </div>
                 </form>
             </div>

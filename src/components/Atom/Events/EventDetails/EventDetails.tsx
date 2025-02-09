@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { NextPage } from "next";
-import Head from "next/head";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 import { formatDate } from '@/utils/FormatData';
@@ -60,20 +59,6 @@ const EventDetails: NextPage<EventDetails> = ({ params, initialEvent }) => {
         }
     }
 
-    const structuredData = event ? {
-        "@context": "https://schema.org",
-        "@type": "Event",
-        "name": event.title,
-        startDate: event.start_datetime,
-        endDate: event.end_datetime,
-        location: {
-            "@type": "Place",
-            "name": event.location,
-        },
-        image: event.index_image_url,
-        eventStatus: event.status,
-    } : null;
-
     if (!initialEvent) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -99,19 +84,6 @@ const EventDetails: NextPage<EventDetails> = ({ params, initialEvent }) => {
 
     return (
         <>
-            <Head>
-                <title>{`${event.title} - Event Details`}</title>
-                <meta name="description" content={event.description.slice(0, 160)} />
-                <meta property="og:title" content={event.title} />
-                <meta property="og:description" content={event.description.slice(0, 150)} />
-                <meta property="og:image" content={event.index_image_url} />
-                <meta property="og:type" content="event" />
-            </Head>
-
-            {structuredData && (
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-            )}
-
             <section className="bg-gray-50 py-28 px-4">
                 <Toaster />
                 <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

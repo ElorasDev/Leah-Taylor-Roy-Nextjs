@@ -2,6 +2,7 @@
 import { NextPage } from "next";
 import { FiX, FiUser, FiMail, FiSmartphone } from "react-icons/fi";
 import { useForm } from "react-hook-form";
+import DOMPurify from "dompurify";
 
 type Props = {
     eventId: number;
@@ -31,11 +32,15 @@ const RegisterEventModal: NextPage<Props> = ({
     } = useForm<RegisterClientDto>();
 
     const onSubmit = async (data: RegisterClientDto) => {
+        const sanitizedData = {
+            fullname: DOMPurify.sanitize(data.fullname),
+            email: DOMPurify.sanitize(data.email),
+            phone_number: DOMPurify.sanitize(data.phone_number),
+        };
 
-            await onRegister(data);;
-            reset();
-            onClose();
-            
+        await onRegister(sanitizedData);
+        reset();
+        onClose();
     };
 
     if (!isOpen) return null;
