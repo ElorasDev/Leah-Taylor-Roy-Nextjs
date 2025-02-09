@@ -6,9 +6,49 @@ import News from "@/components/Molecule/News/News";
 
 
 export const metadata: Metadata = {
-  title: "Leah Taylor Roy | Latest News",
-  description: "Stay updated with the latest news and announcements from Leah Taylor Roy. Read about recent developments, community updates, and more.",
+  title: "Leah Taylor Roy | Latest News & Announcements",
+  description:
+    "Get the latest news, updates, and announcements from Leah Taylor Roy. Stay informed about recent developments, community updates, and more.",
+
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://leahtaylorroymp-development.vercel.app/news",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://leahtaylorroymp-development.vercel.app/news",
+    title: "Leah Taylor Roy | Latest News & Announcements",
+    description:
+      "Get the latest news, updates, and announcements from Leah Taylor Roy. Stay informed about recent developments, community updates, and more.",
+    siteName: "Leah Taylor Roy",
+    images: [
+      {
+        url: "https://leahtaylorroymp-development.vercel.app/images/news-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Leah Taylor Roy - Latest News & Updates",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@LeahTaylorRoy",
+    creator: "@LeahTaylorRoy",
+    title: "Leah Taylor Roy | Latest News & Announcements",
+    description:
+      "Get the latest news, updates, and announcements from Leah Taylor Roy. Stay informed about recent developments, community updates, and more.",
+    images: [
+      "https://leahtaylorroymp-development.vercel.app/images/news-banner.jpg",
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
+
 
 
 export const revalidate = 60;
@@ -22,7 +62,7 @@ const NewsPage = async () => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Leah Taylor Roy | Latest News</title>
+        <title>Leah Taylor Roy | Latest News & Announcements</title>
         <meta
           name="description"
           content="Stay updated with the latest news and announcements from Leah Taylor Roy. Read about recent developments, community updates, and more."
