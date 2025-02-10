@@ -2,8 +2,11 @@ import Billboard from '@/components/Atom/Billboard/Billboard';
 import ContactSection from '@/components/Atom/ContactSection/ContactSection';
 import KeyInitiativesAndStatements from '@/components/Atom/KeyInitiativesAndStatements/KeyInitiativesAndStatements';
 import Summary from '@/components/Atom/Summary/Summary';
-import LeahImage from "../../../../public/images/Leah/leah-image.webp";
 import ParallaxComponent from '../ParallaxComponent/ParallaxComponent';
+
+
+// images
+import LeahImage from "../../../../public/images/Leah/leah-image.webp";
 
 const Landing = () => {
   return (
