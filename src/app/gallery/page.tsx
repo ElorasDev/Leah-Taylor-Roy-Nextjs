@@ -59,6 +59,9 @@ const GalleryPage = async () => {
       <h1 className="sr-only">
         Gallery of Leadership & Community Engagement
       </h1>
+      <p className="sr-only">
+        Explore a collection of moments showcasing leadership and community engagement.
+      </p>
       <Gallery
         initialMedia={media}
       />

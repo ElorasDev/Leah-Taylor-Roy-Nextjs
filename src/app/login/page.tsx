@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
 import Login from '@/components/Molecule/Login/Login';
-import React from 'react'
+
+
+
+export const metadata: Metadata = {
+    title: "Login",
+    robots: {
+        index: false,
+        follow: true,
+    }
+}
 
 const LoginPage = () => {
     return (

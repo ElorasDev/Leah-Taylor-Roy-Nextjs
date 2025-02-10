@@ -93,6 +93,10 @@ const AboutLeahPage = () => {
                 <h1 className="sr-only">
                     About Leah Taylor Roy
                 </h1>
+                <p className="sr-only">
+                    Discover Leah Taylor Roy’s background, vision, and commitment to public service.
+                </p>
+
                 <AboutLeah />
             </main>
         </>

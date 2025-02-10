@@ -86,6 +86,9 @@ const NewsPage = async () => {
         <h1 className="sr-only">
           Latest News & Announcements
         </h1>
+        <p className="sr-only">
+          Stay updated with the latest news and important announcements.
+        </p>
         <News initialNews={news} />
       </main>
 

@@ -63,6 +63,9 @@ const ContactusPage = () => {
         <h1 className="sr-only">
           Contact Us & Collaborate
         </h1>
+        <p className="sr-only">
+          Get in touch with us for inquiries, collaborations, and support.
+        </p>
         <Contactus />
       </main>
     </>
