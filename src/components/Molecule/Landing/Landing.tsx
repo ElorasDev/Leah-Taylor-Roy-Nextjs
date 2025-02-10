@@ -24,7 +24,7 @@ const Landing = () => {
           <div className="!p-0 my-16">
             <ParallaxComponent />
           </div>
-          <ContactSection title="Contact Us - Get in Touch" />
+          <ContactSection title="Get in Touch" />
         </section>
   );
 };
