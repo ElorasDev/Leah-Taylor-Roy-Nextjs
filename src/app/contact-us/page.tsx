@@ -60,6 +60,9 @@ const ContactusPage = () => {
         />
       </Head>
       <main className="min-h-screen">
+        <h1 className="sr-only">
+          Contact Us & Collaborate
+        </h1>
         <Contactus />
       </main>
     </>

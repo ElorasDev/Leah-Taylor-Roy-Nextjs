@@ -61,7 +61,7 @@ const EventsPage = async () => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Leah Taylor Roy | Events</title>
+        <title>Leah Taylor Roy | Events & Community Gatherings</title>
 
         <meta
           name="description"
@@ -92,7 +92,10 @@ const EventsPage = async () => {
       </Head>
 
       <main className="min-h-screen">
-        <Events event={event} />
+        <h1 className="sr-only">
+          Events & Community Gatherings
+        </h1>
+        <Events event={event} />ط
       </main>
     </>
   );
