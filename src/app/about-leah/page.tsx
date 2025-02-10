@@ -90,6 +90,9 @@ const AboutLeahPage = () => {
             </Head>
 
             <main className="h-full">
+                <h1 className="sr-only">
+                    About Leah Taylor Roy
+                </h1>
                 <AboutLeah />
             </main>
         </>

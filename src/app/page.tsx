@@ -81,6 +81,9 @@ export default function Home() {
         />
       </Head>
       <main>
+        <h1 className="sr-only">
+          Leah Taylor Roy | Official Website
+        </h1>
         <Landing />
       </main>
     </>

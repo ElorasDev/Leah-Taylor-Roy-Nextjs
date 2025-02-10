@@ -83,6 +83,9 @@ const NewsPage = async () => {
       </Head>
 
       <main className="min-h-screen">
+        <h1 className="sr-only">
+          Latest News & Announcements
+        </h1>
         <News initialNews={news} />
       </main>
 

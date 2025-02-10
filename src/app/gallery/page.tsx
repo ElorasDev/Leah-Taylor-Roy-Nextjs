@@ -56,7 +56,9 @@ const GalleryPage = async () => {
 
   return (
     <main className="min-h-screen">
-
+      <h1 className="sr-only">
+        Gallery of Leadership & Community Engagement
+      </h1>
       <Gallery
         initialMedia={media}
       />

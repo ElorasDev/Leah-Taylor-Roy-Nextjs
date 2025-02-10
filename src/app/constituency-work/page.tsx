@@ -71,6 +71,9 @@ const ConstituencyWorkPage = () => {
                 <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data:;" />
             </Head>
             <main className="h-full">
+                <h1 className="sr-only">
+                    Constituency Work
+                </h1>
                 <ConstituencyWork />
             </main>
         </>
