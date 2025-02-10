@@ -95,6 +95,9 @@ const EventsPage = async () => {
         <h1 className="sr-only">
           Events & Community Gatherings
         </h1>
+        <p className="sr-only">
+          Explore upcoming events and community gatherings happening near you.
+        </p>
         <Events event={event} />ط
       </main>
     </>

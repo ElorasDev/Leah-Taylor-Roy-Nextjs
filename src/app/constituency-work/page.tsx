@@ -74,6 +74,10 @@ const ConstituencyWorkPage = () => {
                 <h1 className="sr-only">
                     Constituency Work
                 </h1>
+                <p className="sr-only">
+                    Learn more about our efforts and initiatives within the constituency.
+                </p>
+
                 <ConstituencyWork />
             </main>
         </>
