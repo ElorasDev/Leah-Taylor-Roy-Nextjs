@@ -24,14 +24,17 @@ const AboutLeahContent = () => {
                             <h2 className="text-2xl font-bold text-primary mb-4">
                                 {item.title}
                             </h2>
-                            {item.content.split('.').map((sentence, index) => (
-                                <p key={index} className="text-lg text-gray-700 mb-4">
-                                    {sentence}.
-                                </p>
-                            ))}
+                            {item.content
+                                .split('.')
+                                .filter(sentence => sentence.trim().length > 0)
+                                .map((sentence, index) => (
+                                    <p key={index} className="text-lg text-gray-700 mb-4">
+                                        {sentence.trim()}.
+                                    </p>
+                                ))}
                         </article>
                     </div>
-                    {index < contentAbout.length - 1 &&  <hr className="my-6 border-gray-300" />}
+                    {index < contentAbout.length - 1 && <hr className="my-6 border-gray-300" />}
                 </Fragment>
             ))}
         </article>

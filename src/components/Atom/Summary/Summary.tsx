@@ -9,7 +9,7 @@ interface ISummaryProps {
     src: string | StaticImageData;
     href?: string;
     buttonContent?: string;
-    reverse?: boolean; // اضافه شدن prop جدید
+    reverse?: boolean;
 }
 
 const Summary: NextPage<ISummaryProps> = ({
@@ -18,7 +18,7 @@ const Summary: NextPage<ISummaryProps> = ({
     src,
     href,
     buttonContent,
-    reverse = false, // مقدار پیش‌فرض false است
+    reverse = false
 }) => {
 
     const router = useRouter();
@@ -31,8 +31,8 @@ const Summary: NextPage<ISummaryProps> = ({
                     <Image
                         src={src}
                         alt="Leah Taylor Roy"
-                        width={425}
-                        height={550}
+                        width={350}
+                        height={350}
                         className="rounded-lg shadow-lg"
                         loading="lazy"
                         sizes="(max-width: 768px) 400px, 600px"
