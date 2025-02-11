@@ -8,8 +8,6 @@ const Services = () => {
 
     return (
         <section className="max-w-4xl mx-auto py-10 px-4">
-            <h1 className="text-3xl font-bold text-center mb-6">MP Services</h1>
-
             {/* Tab List */}
             <div
                 role="tablist"
@@ -43,7 +41,7 @@ const Services = () => {
                 aria-labelledby={`tab-${activeTab}`}
                 className="p-6 bg-white bg-shadow rounded-lg shadow-md transition-opacity duration-300 ease-in-out"
             >
-                    {data.find((item) => item.id === activeTab)?.component}
+                {data.find((item) => item.id === activeTab)?.component}
             </div>
         </section>
     );

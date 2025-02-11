@@ -12,7 +12,10 @@ const Landing = () => {
   return (
         <section>
           <div className="py-20 px-8">
-            <Billboard image="landing-billboard.webp" />
+            <Billboard
+             image="landing-billboard.webp" 
+             contentBox={true}
+             />
             <Summary
               src={LeahImage}
               title="About Me"
