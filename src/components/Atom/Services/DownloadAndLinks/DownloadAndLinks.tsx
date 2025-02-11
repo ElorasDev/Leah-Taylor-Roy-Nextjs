@@ -3,7 +3,7 @@ import { resources } from './data';
 
 const DownloadAndLinks = () => {
   return (
-    <section className="py-10 px-4">
+    <section className="py-10 px-2">
       <h2 className="text-3xl font-bold text-center mb-6">Downloads & Links</h2>
       <ul className="space-y-4">
         {resources.map((resource, index) => (
