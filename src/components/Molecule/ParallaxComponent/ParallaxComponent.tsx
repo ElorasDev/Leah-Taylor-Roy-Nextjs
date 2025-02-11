@@ -6,7 +6,7 @@ const ParallaxComponent = () => {
   return (
     <div className="h-full">
       <Parallax
-        url="/images/parallax/jason-hafso-C2keINMOhIE-unsplash.jpg"
+        url="/images/parallax/jason-hafso-C2keINMOhIE-unsplash.webp"
       >
         <ParallaxContent />
       </Parallax>
