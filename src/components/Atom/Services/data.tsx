@@ -1,4 +1,5 @@
 // components
+import Certificates from "./Certificates/Certificates";
 import DownloadAndLinks from "./DownloadAndLinks/DownloadAndLinks";
 import GovermentServices from "./GovermentServices/GovermentServices";
 import Volunteer from "./Volunteer/Volunteer";
@@ -23,5 +24,10 @@ export const data:DataType[] = [
         id: 3,
         title: "Volunteer",
         component: <Volunteer />
+    },
+    {
+        id: 4,
+        title: "Certificate",
+        component: <Certificates />
     },
 ]
