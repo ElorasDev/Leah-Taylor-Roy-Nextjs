@@ -28,7 +28,7 @@ const GovernmentServices = () => {
                 </ul>
                 <p>
                     If you have any questions or need assistance with any of these
-                    services, please contact our office{" "}
+                    services, please contact our office or email leah.taylorroy@parl.gc.ca{" "}
                     <button
                         type="button"
                         className="w-full my-3 sm:w-auto px-8 py-3 border-2 border-secendory text-secendory hover:bg-secendory hover:text-white duration-200 transition-all hover:scale-105 rounded-lg flex items-center justify-center gap-2"

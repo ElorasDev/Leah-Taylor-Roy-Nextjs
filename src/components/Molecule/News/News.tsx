@@ -16,7 +16,7 @@ interface INewsProps {
 const News: NextPage<INewsProps> = ({ initialNews }) => {
     return (
         <section>
-            <div className="px-8 py-20">
+            <div className="px-8 py-28">
                 <CardNewsList
                     initialNews={initialNews}
                 />

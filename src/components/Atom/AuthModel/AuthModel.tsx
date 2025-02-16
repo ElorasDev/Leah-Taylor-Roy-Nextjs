@@ -23,7 +23,7 @@ const AuthModel = () => {
     } else {
         setLoad(false);
     }
-}, [savedToken]);
+}, [router, savedToken]);
 
 if (load) return null;
 

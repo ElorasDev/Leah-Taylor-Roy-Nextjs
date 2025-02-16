@@ -28,7 +28,7 @@ export const sendCertificateRequest = async (formData: CertificateFormData): Pro
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/certificates/${formData.section}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), 
       });
   
       if (!response.ok) {
