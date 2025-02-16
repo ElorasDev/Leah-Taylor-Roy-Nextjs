@@ -1,30 +1,35 @@
-import { ResourcesType } from "./types";
-
-
-export const resources: ResourcesType[] = [
+export const resources = [
   {
-    title: 'Government of Canada Benefits Finder',
-    description: 'Discover benefits you may be eligible for by answering a few questions.',
-    link: 'https://innovation.ised-isde.canada.ca/s/?language=en_CA',
+    category: 'government',
+    title: 'Application Processing Times',
+    description: 'Check current processing times for immigration applications.',
+    link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html',
+    note: 'If your application is within processing time, please wait before contacting us'
   },
   {
-    title: 'Come to Canada Questionnaire',
-    description: 'Find out which programs you may be eligible for to come to Canada.',
-    link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/come-canada-tool.html',
+    category: 'government',
+    title: 'Travel Smart App',
+    description: 'Are you travelling soon? Do you have an electronic device? Download the Free Travel Smart App on your App Store or Google Play. Or simply visit www.travel.gc.ca for a step-by-step guide on how to travel smart. This app and website will be your one stop shop to keep you safe while abroad!',
+    link: 'https://www.travel.gc.ca'
   },
   {
-    title: 'Work Permit Requirements',
-    description: 'Determine if you need a work permit to work in Canada.',
-    link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit.html',
+    category: 'government',
+    title: 'Take the Questionnaire',
+    description: 'Are you unsure of what programs you may be eligible for to come to Canada? Have 10-15 minutes? Try the ‘Come to Canada’ Questionnaire. Answer a few questions and receive customized results. If you are eligible, you receive a detailed list of instructions of what to do next.',
+    link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/come-canada-tool.html'
   },
   {
-    title: 'International Student Portal',
-    description: 'Comprehensive information for international students before, during, and after studies in Canada.',
-    link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html',
+    category: 'federal',
+    title: 'Benefits Finder',
+    description:
+      'Did you know you may be eligible for benefits? Check out the easy-to-use Benefits Finder. Answer a few questions and receive customized results.',
+    link: 'https://innovation.ised-isde.canada.ca/...'
   },
   {
-    title: 'Government of Canada Youth Services',
-    description: 'Tips on writing resumes, finding jobs, understanding student loans, exploring careers, and more.',
+    category: 'federal',
+    title: 'Youth Services HQ',
+    description: 'Get tips in writing your resume, finding a job, figuring out your student loans, exploring careers and much more.',
     link: 'https://www.canada.ca/en/services/youth.html',
-  },
+    linkText: 'Explore Youth Services'
+  }
 ];
