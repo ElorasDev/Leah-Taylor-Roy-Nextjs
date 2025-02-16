@@ -24,7 +24,7 @@ type EventType = {
 const Events: NextPage<IEventsProps> = ({ event }) => {
     return (
         <section>
-            <div className="px-8 py-20">
+            <div className="px-8 py-28">
                 <EventsList
                     initialEvent={event}
                 />

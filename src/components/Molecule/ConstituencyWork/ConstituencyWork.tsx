@@ -5,7 +5,7 @@ import React from 'react'
 const ConstituencyWork = () => {
     return (
         <section>
-            <div className="py-28 px-5">
+            <div className="py-36 px-5">
                 <Billboard
                     image="Professional-Journey.webp"
                     contentBox={false}

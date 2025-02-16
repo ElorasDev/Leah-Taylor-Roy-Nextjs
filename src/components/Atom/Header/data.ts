@@ -8,11 +8,21 @@ export const Menu: MenuItem[] = [
     },
     {
         id: 1,
-        title: "About Me",
+        title: "About Leah",
         pathname: "/about-leah"
     },
     {
         id: 2,
+        title: "News",
+        pathname: "/news"
+    },
+    {
+        id: 3,
+        title: "Events",
+        pathname: "/events"
+    },
+    {
+        id: 5,
         title: "Services",
         sections: [
             {
@@ -27,29 +37,19 @@ export const Menu: MenuItem[] = [
             },
             {
                 id: 2,
-                title: "News",
-                pathname: "/news"
-            },
-            {
-                id: 3,
                 title: "Gallery",
                 pathname: "/gallery"
             },
             {
-                id: 4,
-                title: "Events",
-                pathname: "/events"
-            },
-            {
-                id: 5,
-                title: "Contact Us",
-                pathname: "/contact-us",
-            },
-            {
-                id: 6,
+                id: 3,
                 title: "Get Involved & Feedback Forms",
                 pathname: "involved-feedback"
             },
         ]
-    }
+    },
+    {
+        id: 4,
+        title: "Contact Us",
+        pathname: "/contact-us",
+    },
 ]

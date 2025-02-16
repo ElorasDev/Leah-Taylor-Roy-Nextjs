@@ -259,6 +259,10 @@ const BirthdayCertificate = () => {
                     />
                     <label htmlFor="additional_certificates">Additional Certificates</label>
                 </div>
+                <p className="my-2 text-gray-700">
+                    Please check this box if you would like to request all applicable certificates from the Prime Minister, Governor General, and/or Her Majesty the Queen.
+                    If you would only like to apply for some of the applicable certificates, please indicate in the note field.
+                </p>
 
                 <div className="mb-3">
                     <label htmlFor="note">Note:</label>
@@ -274,7 +278,7 @@ const BirthdayCertificate = () => {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="bg-blue-500 text-white py-2 px-4 rounded"
+                    className="bg-primary text-white py-2 px-4 rounded"
                 >
                     {loading ? "Submitting..." : "Submit Certificate Request"}
                 </button>

@@ -176,7 +176,7 @@ const BirthdayCardCertificate = () => {
         <button
           type="submit"
           disabled={loading}
-          className="bg-blue-500 text-white py-2 px-4 rounded"
+          className="bg-primary text-white py-2 px-4 rounded"
         >
           {loading ? "Submitting..." : "Submit Certificate Request"}
         </button>
