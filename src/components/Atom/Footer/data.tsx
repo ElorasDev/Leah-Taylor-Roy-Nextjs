@@ -41,11 +41,6 @@ export const menu: MenuItem[] = [
         title: "Constituency Work",
         pathname: "/constituency-work"
     },
-    {
-        id: 7,
-        title: "Privacy Policy & Accessibility",
-        pathname: "/policy"
-    },
 ]
 
 export const socialMedia: SocialMedia[] = [

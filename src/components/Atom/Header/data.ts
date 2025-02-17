@@ -40,11 +40,6 @@ export const Menu: MenuItem[] = [
                 title: "Gallery",
                 pathname: "/gallery"
             },
-            {
-                id: 3,
-                title: "Get Involved & Feedback Forms",
-                pathname: "involved-feedback"
-            },
         ]
     },
     {
