@@ -14,7 +14,7 @@ const Volunteer = () => {
                 </p>
             </article>
             <Link
-                href="/events"
+                href="/volunteer"
                 className="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-red-700 transition duration-300"
                 aria-label="Sign up to become a volunteer and help the community"
             >
