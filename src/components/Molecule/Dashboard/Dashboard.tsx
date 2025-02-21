@@ -7,12 +7,16 @@ import Cookies from "js-cookie";
 // Components
 import MainNavigation from "@/components/Atom/DashboardContent/MainNavigation/MainNavigation";
 import { mainNavigationContent } from "@/components/Atom/DashboardContent/MainNavigation/data";
+import SubNavigation from "@/components/Atom/DashboardContent/SubNavigitaion/SubNavigation";
+import { subNavigationContent } from "@/components/Atom/DashboardContent/SubNavigitaion/data";
 
 const Dashboard: NextPage = () => {
     const [select, setSelect] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(true);
     const router = useRouter();
     const savedToken = Cookies.get('auth_token');
+    const subNavigationContentItem = subNavigationContent.find((item) => item.id === select);
+
 
     useEffect(() => {
         if (!savedToken) {
@@ -32,11 +36,26 @@ const Dashboard: NextPage = () => {
                         setSelect(selector)
                     }} />
                 </div>
-                <>
-                    {
-                        mainNavigationContent[select].component
-                    }
-                </>
+                {
+                    select ?
+                        <>
+                            {
+                                mainNavigationContent[select] ?
+                                    mainNavigationContent[select].component
+                                    :
+                                    subNavigationContentItem ?
+                                        subNavigationContentItem.component
+                                        :
+                                        ""
+                            }
+                        </>
+                        :
+                        <SubNavigation
+                            selectHandller={(selector) => {
+                                setSelect(selector)
+                            }}
+                        />
+                }
             </div>
         </div>
     );
