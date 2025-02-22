@@ -43,12 +43,24 @@ const Summary: NextPage<ISummaryProps> = ({
           <h1 className="text-2xl font-bold text-neutral mb-4">
             {title}
           </h1>
-          <p className="text-lg text-gray-700 mb-4">
-            {content}
-          </p>
+          <article className="h-56 overflow-y-auto">
+          {
+            content
+            .split('.')
+            .filter(sentence => sentence.trim().length > 0)
+            .map((sentence, index) => (
+                <p key={index} className="text-lg text-gray-700 mb-4">
+                    {sentence.trim()}.
+                </p>
+            ))
+          }
+          </article>
           {buttonContent && (
             <button
-              className="my-5 rounded-lg text-white bg-secendory transition-colors px-4 py-2 w-full"
+            className="mt-6 rounded-lg text-white bg-secendory
+            transition-all px-4 py-2 w-full hover:bg-secendory
+            hover:scale-105 
+            "
               onClick={() => href && router.push(href)}
             >
               {buttonContent}

@@ -19,7 +19,7 @@ export const menu: MenuItem[] = [
     {
         id: 2,
         title: "About Me",
-        pathname: "/about-leah"
+        pathname: "/about-me"
     },
     {
         id: 3,

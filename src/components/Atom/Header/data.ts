@@ -8,8 +8,8 @@ export const Menu: MenuItem[] = [
     },
     {
         id: 1,
-        title: "About Leah",
-        pathname: "/about-leah"
+        title: "About Me",
+        pathname: "/about-me"
     },
     {
         id: 2,

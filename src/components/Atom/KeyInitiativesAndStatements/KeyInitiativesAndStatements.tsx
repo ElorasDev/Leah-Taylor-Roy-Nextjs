@@ -1,12 +1,10 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 // data item
 import { kisContent } from "./data";
 
 const KeyInitiativesAndStatements = () => {
-    const router = useRouter();
 
     return (
         <section className="w-full" aria-labelledby="key-initiatives-title">
@@ -59,17 +57,6 @@ const KeyInitiativesAndStatements = () => {
                                     {sentence}
                                 </p>
                             ))}
-
-                            <button
-                                className="mt-6 rounded-lg text-white bg-secendory
-                                    transition-all px-4 py-2 w-full md:w-auto hover:bg-secendory
-                                    hover:scale-105 
-                                    "
-                                onClick={() => router.push(`${item.href}`)}
-                                aria-label={`Explore ${item.title} Parliamentary Work`}
-                            >
-                                Explore Parliamentary Work
-                            </button>
                         </div>
                     </article>
                 );

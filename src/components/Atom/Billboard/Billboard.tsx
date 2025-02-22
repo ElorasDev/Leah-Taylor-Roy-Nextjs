@@ -56,30 +56,14 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
                                 </h1>
                                 <p className="text-md text-center">
                                     Sharing Your Thoughts Helps Me Better Represent You.
-                                    By outlining your priorities, I can deliver even more for you,
-                                    your family, and our community.
+                                    By outlining your priorities, I can deliver even more for you, your family, and our community.
                                 </p>
-                                <button
-                                    className="
-                    my-5
-                    bg-secendory
-                    rounded-lg
-                    text-white
-                    font-bold
-                    px-4
-                    py-2
-                    shadow-sm
-                    w-full
-                  "
-                                    onClick={() => router.push("/about-leah")}
-                                >
-                                    Learn More About Leah
-                                </button>
                                 <button
                                     className="
                     rounded-lg
                     text-white
                     border
+                    my-4
                     border-secendory
                     hover:bg-secendory
                     transition-colors
@@ -131,30 +115,15 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
                         </h1>
                         <p className="text-base text-center mb-6">
                             Sharing Your Thoughts Helps Me Better Represent You.
-                            By outlining your priorities, I can deliver even more for you,
-                            your family, and our community.
+                            By outlining your priorities, I can deliver even more for you, your family, and our community.
                         </p>
 
                         <div className="space-y-4">
                             <button
                                 className="
-                bg-secendory
-                rounded-lg
-                text-white
-                font-bold
-                px-4
-                py-2
-                w-full
-                hover:opacity-90
-                transition-opacity
-              "
-                            >
-                                Learn More About Leah
-                            </button>
-                            <button
-                                className="
                 rounded-lg
                 text-primary
+                my-4
                 border
                 border-secendory
                 hover:bg-secendory/20
