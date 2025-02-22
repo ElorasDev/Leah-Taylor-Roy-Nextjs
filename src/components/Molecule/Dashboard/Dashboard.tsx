@@ -29,35 +29,30 @@ const Dashboard: NextPage = () => {
     if (loading) return null;
 
     return (
-        <div className="min-h-screen my-32">
-            <div className="flex justify-between mx-10 space-x-5">
-                <div className="w-fit">
-                    <MainNavigation selectHandller={(selector) => {
-                        setSelect(selector)
-                    }} />
-                </div>
-                {
-                    select ?
-                        <>
-                            {
-                                mainNavigationContent[select] ?
-                                    mainNavigationContent[select].component
-                                    :
-                                    subNavigationContentItem ?
-                                        subNavigationContentItem.component
-                                        :
-                                        ""
-                            }
-                        </>
-                        :
-                        <SubNavigation
-                            selectHandller={(selector) => {
-                                setSelect(selector)
-                            }}
-                        />
-                }
-            </div>
+        <div className="min-h-screen my-8 md:my-16 lg:my-32">
+        <div className="flex flex-col lg:flex-row justify-between mx-4 lg:mx-8 space-y-4 lg:space-y-0 lg:space-x-5">
+          
+          {/* Main Navigation */}
+          <div className="w-full lg:w-fit">
+            <MainNavigation 
+              selectHandller={(selector) => setSelect(selector)} 
+            />
+          </div>
+  
+          {/* Content Area */}
+          <div className="flex-1 min-w-0">
+            {select ? (
+              mainNavigationContent[select]?.component || 
+              (subNavigationContentItem?.component ?? null)
+            ) : (
+              <SubNavigation
+                selectHandller={(selector) => setSelect(selector)}
+              />
+            )}
+          </div>
+          
         </div>
+      </div>
     );
 };
 

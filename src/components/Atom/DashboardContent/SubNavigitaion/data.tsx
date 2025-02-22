@@ -1,4 +1,5 @@
 // types
+import CertificateManagement from '../CertificateManagement/CertificateManagement';
 import SupportManagement from '../SupportManagement/SupportManagement';
 import VolunteerManagement from '../VolunteerManagement/VolunteerManagement';
 import VoteManagement from '../VoteManagement/VoteManagement';
@@ -29,5 +30,11 @@ export const subNavigationContent: SubNavigationContentType[] = [
         title: "Support",
         icon: <FaLifeRing />,
         component: <SupportManagement />,
+    },
+    {
+        id: 9,
+        title: "Certificates",
+        icon: <FaLifeRing />,
+        component: <CertificateManagement />,
     },
 ];

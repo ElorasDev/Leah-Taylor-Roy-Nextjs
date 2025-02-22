@@ -90,7 +90,7 @@ const VolunteerManagement = () => {
   };
 
   return (
-    <section className="w-[75.25%]">
+    <section className="w-full">
       <div className="bg-white shadow rounded-lg p-6">
         <h1 className="text-2xl font-bold mb-4 text-gray-800 text-center">
           Volunteer Management
