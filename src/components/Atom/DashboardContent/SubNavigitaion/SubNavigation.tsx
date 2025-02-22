@@ -11,6 +11,9 @@ const SubNavigation: NextPage<ISubNavigationProps> = ({ selectHandller }) => {
 
   return (
     <div className="w-full mx-auto py-8 px-4">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-gray-800">
+        Dashboard
+      </h1>ّ
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {subNavigationContent.map((item) => (
           <div
