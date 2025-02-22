@@ -4,8 +4,10 @@ import { ContentAbout } from './types';
 export const contentAbout:ContentAbout[] = [
     {
         id: 0,
-        title: "Professional Journey",
-        content: "Leah Taylor Roy's career is marked by significant roles in both the public and private sectors. After earning a Bachelor of Commerce from the University of Toronto and a Master's in Public Policy from Harvard University, she embarked on a path that combined her passion for public policy and business. Her tenure at the World Bank involved policy analysis and treasury responsibilities, providing her with a global perspective on economic development. Subsequently, at McKinsey & Company in Toronto, Leah worked with major Canadian corporations across various industries, enhancing her understanding of the national economic landscape. Later, as Executive Vice President of her family's energy co-generation company, she demonstrated leadership in sustainable energy solutions.",
+        title: "Professional Journey of Leah Taylor Roy",
+        content: `My career has always been shaped by my desire to make a meaningful impact. After earning my degrees, I worked at the World Bank, where I analyzed global economic policies, gaining a broader understanding of the challenges and opportunities facing developing economies. I then joined McKinsey & Company, where I advised Canadian businesses on strategies to drive growth and address national challenges.
+Later, I became the Executive Vice President of my family’s green energy co-generation company, where I led eco-friendly initiatives that supported sustainable energy solutions. These experiences have guided the way I approach my work in Parliament, combining business, public policy, and sustainability to create lasting, positive change for our community.
+`,
         src: "Professional Journey.webp",
     },
     {
