@@ -7,34 +7,35 @@ import { SubNavigationContentType } from './types';
 
 // icons
 import {
-    FaUserFriends,
-    FaVoteYea,
-    FaLifeRing,
+  FaHandsHelping,
+  FaPollH,   
+  FaHeadset,   
+  FaCertificate,
 } from 'react-icons/fa';
 
 export const subNavigationContent: SubNavigationContentType[] = [
-    {
-        id: 6,
-        title: "Volunteers",
-        icon: <FaUserFriends />,
-        component: <VolunteerManagement />
-    },
-    {
-        id: 7,
-        title: "Votes",
-        icon: <FaVoteYea />,
-        component: <VoteManagement />,
-    },
-    {
-        id: 8,
-        title: "Support",
-        icon: <FaLifeRing />,
-        component: <SupportManagement />,
-    },
-    {
-        id: 9,
-        title: "Certificates",
-        icon: <FaLifeRing />,
-        component: <CertificateManagement />,
-    },
+  {
+    id: 6,
+    title: "Volunteers",
+    icon: <FaHandsHelping />,
+    component: <VolunteerManagement />
+  },
+  {
+    id: 7,
+    title: "Votes",
+    icon: <FaPollH />,
+    component: <VoteManagement />,
+  },
+  {
+    id: 8,
+    title: "Support",
+    icon: <FaHeadset />,
+    component: <SupportManagement />,
+  },
+  {
+    id: 9,
+    title: "Certificates",
+    icon: <FaCertificate />,
+    component: <CertificateManagement />,
+  },
 ];
