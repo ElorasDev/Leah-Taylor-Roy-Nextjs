@@ -1,31 +1,63 @@
-
 import { ContentAbout } from './types';
 
-export const contentAbout:ContentAbout[] = [
+export const contentAbout: ContentAbout[] = [
     {
         id: 0,
         title: "Professional Journey of Leah Taylor Roy",
         content: `My career has always been shaped by my desire to make a meaningful impact. After earning my degrees, I worked at the World Bank, where I analyzed global economic policies, gaining a broader understanding of the challenges and opportunities facing developing economies. I then joined McKinsey & Company, where I advised Canadian businesses on strategies to drive growth and address national challenges.
+        
 Later, I became the Executive Vice President of my family’s green energy co-generation company, where I led eco-friendly initiatives that supported sustainable energy solutions. These experiences have guided the way I approach my work in Parliament, combining business, public policy, and sustainability to create lasting, positive change for our community.
-`,
+        `,
         src: "Professional Journey.webp",
     },
     {
         id: 1,
-        title: "Advocacy for Small Businesses",
-        content: "Leah's commitment to economic development extends to her advocacy for small businesses. She established a non-profit organization dedicated to implementing practical solutions that support small enterprises in developing countries. This initiative underscores her belief in empowering local entrepreneurs as a means to foster economic growth and reduce poverty.",
-        src: "Advocacy for Small Businesses.webp",
-    },
-    {
-        id: 2,
-        title: "Community Engagement",
-        content: "Beyond her professional endeavors, Leah is deeply involved in her local community in York Region. She actively supports numerous charities, including CHATS, Habitat for Humanity, the Aurora Black History Association, the Canadian Mental Health Association, Inn from the Cold, the Salaam Foundation, Heart and Stroke Foundation, Voices of Joy, the York Region Environmental Alliance, Oak Ridges Moraine Conservation, and Community Living. Her engagement with these organizations reflects her dedication to social causes and environmental stewardship.",
+        title: "Advocacy for Small Businesses & Community Engagement",
+        content: `Supporting small businesses has always been a priority for me. I founded a non-profit organization that empowers small enterprises in developing countries by helping local entrepreneurs foster growth and reduce poverty. This experience drives my ongoing work to advocate for small businesses here in Aurora—Oak Ridges—Richmond Hill and beyond.
+        
+I am also deeply involved in local community efforts, supporting various charities and initiatives such as:
+• CHATS
+• Habitat for Humanity
+• Aurora Black History Association
+• Canadian Mental Health Association
+• Inn from the Cold
+• Salaam Foundation
+• Heart and Stroke Foundation
+• Voices of Joy
+• York Region Environmental Alliance
+• Oak Ridges Moraine Conservation
+• Community Living
+        
+These organizations are part of my commitment to addressing the diverse needs of our community, from mental health to environmental conservation, ensuring that everyone has the support they need to thrive.
+        `,
         src: "Community Engagement.webp",
     },
     {
+        id: 2,
+        title: "Constituency Impact – Making a Real Difference",
+        content: `During my time as your Member of Parliament, I’ve focused on key issues that matter most to our community. Some of the ways I’ve worked to improve life in Aurora—Oak Ridges—Richmond Hill includes:\n
+        •	Enhancing Local Housing Initiatives: Working with local governments to increase affordable housing options for families.
+•	Promoting Environmental Initiatives: Advocating for policies that protect green spaces, safeguard the Oak Ridges Moraine, and reduce pollution.
+•	Fostering Community Engagement: Hosting town halls and roundtable discussions to give you a platform to voice your concerns and collaborate on solutions.
+        
+        `,
+        src: "Advocacy for Small Businesses.webp",
+    },
+    {
         id: 3,
-        title: "Personal Background",
-        content: "Leah's roots in York Region run deep. Currently residing in Aurora with her husband, Peter Roy, they have raised six children and are proud grandparents to two granddaughters. Coming from a family with a legacy of public service and community involvement, Leah's commitment to serving others is both a personal and family tradition.",
+        title: "What I Stand For",
+        content: "At the heart of my work is a commitment to building a more inclusive, sustainable, and prosperous Canada. Here’s what I stand for:\n• Inclusivity: I believe in a society where everyone, regardless of background, gender, or socioeconomic status, has the opportunity to succeed.\n• Transparency and Accountability: I’m dedicated to transparent governance, ensuring that your voices are always heard in Ottawa.\n• Environmental Protection: I advocate for green initiatives and sustainability practices, working to protect our environment for future generations.\n• Equal Opportunity: I stand for gender equality and am committed to fighting for a society where women and men have equal access to opportunities and rights.",
         src: "Personal Background.webp",
     },
-]
+    {
+        id: 4,
+        title: "Government Work – Championing Change",
+        content: `As a Member of Parliament, my focus is always on policies that benefit not only my community but all Canadians. Some of my key contributions include:\n
+        •	Environmental Advocacy: Pushing for stronger environmental protections, including green policies that reduce pollution and safeguard biodiversity.
+•	Women’s Rights: Fighting for gender equality by supporting legislation for equal pay, paid family leave, and women’s rights in every aspect of society.
+•	Public Safety: Advocating for increased funding for emergency services and community crime prevention strategies to keep our neighborhoods safe.
+•	Affordable Housing: Championing policies to make housing more affordable, particularly in growing urban areas like ours, to help families find stable, affordable places to live.
+        `,
+        src: "Leah-Taylor-Roy-833x833.webp",
+    },
+];
