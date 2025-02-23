@@ -15,7 +15,7 @@ export const resources = [
   {
     category: 'government',
     title: 'Take the Questionnaire',
-    description: 'Are you unsure of what programs you may be eligible for to come to Canada? Have 10-15 minutes? Try the ‘Come to Canada’ Questionnaire. Answer a few questions and receive customized results. If you are eligible, you receive a detailed list of instructions of what to do next.',
+    description: 'Are you unsure of what programs you may be eligible for to come to Canada? Have 10-15 minutes? Try the “Come to Canada” Questionnaire. Answer a few questions and receive customized results. If you are eligible, you receive a detailed list of instructions of what to do next.',
     link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/come-canada-tool.html'
   },
   {
@@ -31,5 +31,17 @@ export const resources = [
     description: 'Get tips in writing your resume, finding a job, figuring out your student loans, exploring careers and much more.',
     link: 'https://www.canada.ca/en/services/youth.html',
     linkText: 'Explore Youth Services'
+  },
+  {
+    category: 'government',
+    title: 'Permanent Residency & Citizenship',
+    description: 'Find detailed information and application guides for obtaining Permanent Residency and Canadian Citizenship.',
+    link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html'
+  },
+  {
+    category: 'government',
+    title: 'Visitor Visa Application Checklist',
+    description: 'Access the IRCC checklist and guidelines for building a strong Visitor Visa Application.',
+    link: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html'
   }
 ];
