@@ -37,7 +37,7 @@ const CreatePostNews: NextPage<ICreatePostNewsProps> = ({ setHideCreatePostHandl
             ["bold", "italic", "underline", "strike", "blockquote"],
             [{ align: ["right", "center", "justify"] }],
             [{ list: "ordered" }, { list: "bullet" }],
-            ["link", "image"],
+            ["link", "image", "video"],
         ],
     };
 
