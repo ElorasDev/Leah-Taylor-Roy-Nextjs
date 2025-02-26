@@ -22,9 +22,9 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
           sm:aspect-[16/6]
           md:aspect-[16/5]
           lg:aspect-[16/4]
-          min-h-[370px]
-          sm:min-h-[470px]
-          lg:min-h-[550px]
+          min-h-[390px]
+          sm:min-h-[490px]
+          lg:min-h-[570px]
         "
             >
 
