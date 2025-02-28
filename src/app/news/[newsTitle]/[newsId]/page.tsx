@@ -1,4 +1,3 @@
-import Head from "next/head";
 import type { Metadata } from "next";
 import NewsPost from "@/components/Atom/News/NewsPost/NewsPost";
 import { fetchPublishedNewsByTitle } from "@/actions/getNewsByTitle";
@@ -31,40 +30,6 @@ export default async function NewsTitle({ params }: NewsTitleParams) {
 
   return (
     <>
-      <Head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <title>{news?.title || "News Article"} | Official News</title>
-
-        <meta
-          name="description"
-          content={news?.content || "Read the latest news and updates on important topics."}
-        />
-
-        <meta name="robots" content="index, follow" />
-
-        {/* Open Graph (OG) Meta Tags */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={news?.title || "News Article"} />
-        <meta property="og:description" content={news?.content || "Stay updated with the latest news."} />
-        <meta property="og:image" content={news?.image || "/default-news-image.jpg"} />
-        <meta property="og:url" content={`https://leahtaylorroy.com/news/${params.newsTitle}/${params.newsId}`} />
-
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={news?.title || "News Article"} />
-        <meta name="twitter:description" content={news?.content || "Read the latest updates and insights."} />
-        <meta name="twitter:image" content={news?.index_image_url || "/default-news-image.jpg"} />
-
-        <link rel="canonical" href={`https://leahtaylorroy.com/news/${params.newsTitle}/${params.newsId}`} />
-
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:;"
-        />
-      </Head>
-
       <main className="min-h-screen">
 
         {structuredData && (

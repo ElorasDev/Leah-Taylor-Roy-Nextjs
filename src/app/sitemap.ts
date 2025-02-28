@@ -2,7 +2,7 @@ import { fetchEvents } from "@/actions/getAllEvents";
 import { fetchPublishedNews } from "@/actions/getPublishedNews";
 
 export default async function sitemap() {
-    const baseUrl = "https://leahtaylorroymp-development.vercel.app";
+    const baseUrl = "https://www.leahtaylorroymp.ca";
 
     const staticRoutes = [
         "/",

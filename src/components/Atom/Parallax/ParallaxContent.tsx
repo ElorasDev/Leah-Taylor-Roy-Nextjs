@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa'
 
 const ParallaxContent = () => {
     return (
@@ -15,7 +15,7 @@ const ParallaxContent = () => {
             </p>
             <div className="mt-6 flex gap-6 text-3xl">
                 <Link
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/LeahTaylorRoyMP"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-110 transition-transform"
@@ -23,15 +23,15 @@ const ParallaxContent = () => {
                     <FaFacebook />
                 </Link>
                 <Link
-                    href="https://twitter.com"
+                    href="https://www.youtube.com/@Leah_Taylor_Roy"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-110 transition-transform"
                 >
-                    <FaTwitter />
+                    <FaYoutube />
                 </Link>
                 <Link
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/leah_taylor_roy/?hl=en"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-110 transition-transform"
@@ -39,7 +39,7 @@ const ParallaxContent = () => {
                     <FaInstagram />
                 </Link>
                 <Link
-                    href="https://linkedin.com"
+                    href="linkedin.com/in/leah-taylor-roy-377b2245"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-110 transition-transform"
