@@ -10,18 +10,18 @@ export const metadata: Metadata = {
 
   robots: "index, follow",
   alternates: {
-    canonical: "https://leahtaylorroymp-development.vercel.app/gallery",
+    canonical: "https://www.leahtaylorroymp.ca/gallery",
   },
   openGraph: {
     type: "website",
-    url: "https://leahtaylorroymp-development.vercel.app/gallery",
+    url: "https://www.leahtaylorroymp.ca/gallery",
     title: "Leah Taylor Roy | Gallery of Leadership & Community Engagement",
     description:
       "Explore the vibrant gallery of Leah Taylor Roy, featuring memorable photos from key events, community engagements, and inspiring moments. Discover the stories behind the images that reflect her leadership and commitment to public service.",
     siteName: "Leah Taylor Roy",
     images: [
       {
-        url: "https://leahtaylorroymp-development.vercel.app/images/gallery-preview.jpg",
+        url: "https://www.leahtaylorroymp.ca/images/gallery-preview.jpg",
         width: 1200,
         height: 630,
         alt: "Leah Taylor Roy Gallery",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description:
       "Explore the vibrant gallery of Leah Taylor Roy, featuring memorable photos from key events, community engagements, and inspiring moments. Discover the stories behind the images that reflect her leadership and commitment to public service.",
     images: [
-      "https://leahtaylorroymp-development.vercel.app/images/gallery-preview.jpg",
+      "https://www.leahtaylorroymp.ca/images/gallery-preview.jpg",
     ],
   },
   icons: {

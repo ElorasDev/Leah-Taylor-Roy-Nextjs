@@ -49,7 +49,7 @@ export default async function EventDetail({ params }: EventDetailsParams) {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:image" content={event?.index_image_url || "/default-event-image.jpg"} />
-        <meta property="og:url" content={`https://leahtaylorroymp-development.vercel.app/events/${params.eventTitle}/${params.eventId}`} />
+        <meta property="og:url" content={`https://www.leahtaylorroymp.ca/events/${params.eventTitle}/${params.eventId}`} />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -57,7 +57,7 @@ export default async function EventDetail({ params }: EventDetailsParams) {
         <meta name="twitter:description" content={pageDescription} />
         <meta name="twitter:image" content={event?.image || "/default-event-image.jpg"} />
 
-        <link rel="canonical" href={`https://leahtaylorroymp-development.vercel.app/events/${params.eventTitle}/${params.eventId}`} />
+        <link rel="canonical" href={`https://www.leahtaylorroymp.ca/events/${params.eventTitle}/${params.eventId}`} />
 
         <meta
           httpEquiv="Content-Security-Policy"

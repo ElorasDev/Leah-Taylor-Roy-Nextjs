@@ -8,19 +8,19 @@ export const metadata: Metadata = {
         "Learn more about Leah Taylor Roy, her background, political views, and contributions to the community.",
     robots: "index, follow",
     alternates: {
-        canonical: "https://leahtaylorroymp-development.vercel.app/about-leah",
+        canonical: "https://www.leahtaylorroymp.ca/about-leah",
     },
 
     openGraph: {
         type: "profile",
-        url: "https://leahtaylorroymp-development.vercel.app/about",
+        url: "https://www.leahtaylorroymp.ca/about",
         title: "MP Leah Taylor Roy | About Leah Taylor Roy",
         description:
             "Learn more about Leah Taylor Roy, her background, political views, and contributions to the community.",
         siteName: "Leah Taylor Roy",
         images: [
             {
-                url: "https://leahtaylorroymp-development.vercel.app/images/leah-profile.jpg",
+                url: "https://www.leahtaylorroymp.ca/images/leah-profile.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Leah Taylor Roy - About Page",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         description:
             "Learn more about Leah Taylor Roy, her background, political views, and contributions to the community.",
         images: [
-            "https://leahtaylorroymp-development.vercel.app/images/leah/leah-profile.jpg",
+            "https://www.leahtaylorroymp.ca/images/leah/leah-profile.jpg",
         ],
     },
     icons: {

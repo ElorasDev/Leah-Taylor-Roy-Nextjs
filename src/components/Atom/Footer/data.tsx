@@ -2,7 +2,6 @@ import { MenuItem, SocialMedia } from "./types";
 import Facebook from "../Icons/Facebook";
 import Instagram from "../Icons/Instagram";
 import Linkedin from "../Icons/Linkedin";
-import X from "../Icons/X";
 import Youtube from "../Icons/Youtube";
 
 export const menu: MenuItem[] = [
@@ -47,31 +46,25 @@ export const socialMedia: SocialMedia[] = [
     {
         id: 0,
         title: "Facebook",
-        pathname: "/",
+        pathname: "https://www.facebook.com/LeahTaylorRoyMP",
         vector: <Facebook />,
     },
     {
         id: 1,
         title: "Instagram",
-        pathname: "/",
+        pathname: "https://www.instagram.com/leah_taylor_roy/?hl=en",
         vector: <Instagram />,
     },
     {
         id: 2,
         title: "Linkedin",
-        pathname: "/",
+        pathname: "linkedin.com/in/leah-taylor-roy-377b2245",
         vector: <Linkedin />,
-    },
-    {
-        id: 3,
-        title: "X",
-        pathname: "/",
-        vector: <X />,
     },
     {
         id: 4,
         title: "Youtube",
-        pathname: "/",
+        pathname: "https://www.youtube.com/@Leah_Taylor_Roy",
         vector: <Youtube />,
     }
 ];
