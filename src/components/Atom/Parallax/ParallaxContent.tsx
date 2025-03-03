@@ -39,7 +39,7 @@ const ParallaxContent = () => {
                     <FaInstagram />
                 </Link>
                 <Link
-                    href="linkedin.com/in/leah-taylor-roy-377b2245"
+                    href="https://www.linkedin.com/in/leah-taylor-roy-377b2245"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-110 transition-transform"
