@@ -58,7 +58,7 @@ export const socialMedia: SocialMedia[] = [
     {
         id: 2,
         title: "Linkedin",
-        pathname: "linkedin.com/in/leah-taylor-roy-377b2245",
+        pathname: "https://www.linkedin.com/in/leah-taylor-roy-377b2245",
         vector: <Linkedin />,
     },
     {
