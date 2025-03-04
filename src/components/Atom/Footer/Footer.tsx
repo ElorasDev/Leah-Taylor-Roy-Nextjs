@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Logo from '/public/logo/leah_taylor_roy_logo_2.png';
+import Logo from '/public/logo/leah_taylor_roy_logo.png';
 import { menu, socialMedia } from './data';
 
 const Footer = () => {

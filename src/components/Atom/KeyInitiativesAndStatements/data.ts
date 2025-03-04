@@ -12,7 +12,7 @@ export const kisContent: KisItem[] = [
     },
     {
       id: 1,
-      title: "Why I Care about",
+      title: "Why I Care About",
       content:
         "I am committed to building a strong, inclusive economy where families have access to affordable housing, quality childcare, and good jobs. Supporting small businesses and economic growth ensures a better future for all. I also advocate for gender equality, championing policies that promote women’s leadership, equal pay, and accessible childcare. Protecting our environment is equally vital—I am dedicated to preserving the Oak Ridges Moraine and local green spaces through sustainable practices and strong environmental policies to safeguard our future.",
       src: "Leah & Maryam.webp",
