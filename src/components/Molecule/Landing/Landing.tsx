@@ -20,7 +20,7 @@ const Landing = () => {
         </div>
         <Summary
           src={LeahImage}
-          title="About Me"
+          title="About me"
           content={`
           Leah Taylor Roy - Your Voice for Aurora—Oak Ridges—Richmond Hill
 Since 2021, Leah Taylor Roy has been a proud and dedicated Member of Parliament for Aurora—Oak Ridges—Richmond Hill, where she serves as a voice for the community she knows and loves. Raised in York Region, Leah carries with her a deep commitment to the values of collaboration, compassion, and integrity that define this vibrant part of Canada.

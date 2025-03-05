@@ -8,7 +8,7 @@ const ParallaxContent = () => {
             aria-labelledby="parallax-heading"
         >
             <h1 id="parallax-heading" className="text-4xl font-bold drop-shadow-lg">
-                Follow Us
+                Follow us
             </h1>
             <p className="mt-4 text-lg drop-shadow-lg">
                 Stay connected through our social media channels

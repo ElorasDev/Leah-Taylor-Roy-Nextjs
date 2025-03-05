@@ -63,7 +63,7 @@ const EventsPage = async () => {
         <p className="sr-only">
           Explore upcoming events and community gatherings happening near you.
         </p>
-        <Events event={event} />ط
+        <Events event={event} />
       </main>
     </>
   );

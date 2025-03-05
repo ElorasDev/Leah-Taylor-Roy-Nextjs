@@ -53,7 +53,7 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
                 "
                             >
                                 <h1 className="font-bold text-xl text-center lg:text-2xl">
-                                    Your Voice Matters
+                                    Your voice matters
                                 </h1>
                                 <p className="text-md text-center">
                                     Sharing Your Thoughts Helps Me Better Represent You.
