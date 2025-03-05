@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 import { NextPage } from "next";
+import Link from "next/link";
 import useDebounce from "@/hooks/useDebounce/useDebounce";
 import CardNews from "../Events/CardEvent/CardEvent";
+
 
 type EventsItem = {
     id: number;
@@ -110,6 +112,18 @@ const EventsList:NextPage<EventListProps> = ({initialEvent}) => {
                         ))}
                     </div>
                 )}
+
+                <div className="text-center mt-10 flex justify-center">
+                    <p className="text-lg">
+                        For more information on events, please visit the{" "}
+                        <Link href="https://liberal.ca/eda-meetings" passHref className="w-fit" target="_blank" rel="noopener noreferrer">
+                          <p className="text-primary font-bold hover:underline">
+                                EDA website
+                          </p>
+                        </Link>
+                    </p>
+                </div>
+                
             </section>
         </>
     );
