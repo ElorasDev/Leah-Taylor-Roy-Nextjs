@@ -112,7 +112,7 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
           "
                     >
                         <h1 className="font-bold text-xl text-center mb-4">
-                            Your Voice Matters
+                            Your voice matters
                         </h1>
                         <p className="text-base text-center mb-6">
                             Sharing Your Thoughts Helps Me Better Represent You.
@@ -127,10 +127,10 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
                 my-4
                 border
                 border-secendory
-                hover:bg-secendory/20
+                hover:bg-secendory
                 hover:text-white
                 hover:font-bold
-                transition-colors
+                transition-all
                 px-4
                 py-2
                 w-full
