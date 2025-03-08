@@ -13,7 +13,7 @@ export const menu: MenuItem[] = [
     {
         id: 1,
         title: "Events",
-        pathname: "/resource"
+        pathname: "/events"
     },
     {
         id: 2,
