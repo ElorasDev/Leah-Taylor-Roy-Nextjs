@@ -11,9 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en-US">
       <head>
-      </head>
-      <body className="antialiased bg-[#F2F3F4]">
-        <Script
+      <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=AW-16897279532"
         />
@@ -25,6 +23,8 @@ export default function RootLayout({
             gtag('config', 'AW-16897279532');
           `}
         </Script>
+      </head>
+      <body className="antialiased bg-[#F2F3F4]">
         <ReactQueryProvider>
           <SupabaseProvider>
             <Layout>
