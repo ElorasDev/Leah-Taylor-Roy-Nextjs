@@ -3,6 +3,7 @@ import { SupabaseProvider } from "@/Providers/SupabaseProvider";
 import Layout from "../components/Molecule/Layout/Layout";
 import "./globals.css";
 import ReactQueryProvider from "@/Providers/ReactQueryProvider";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -12,10 +13,18 @@ export default function RootLayout({
       <head>
       </head>
       <body className="antialiased bg-[#F2F3F4]">
-      <script
-          async
-          src="https://tag.simpli.fi/sifitag/fbf0d310-9803-0136-4f23-067f653fa718" 
-        ></script>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16897279532"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16897279532');
+          `}
+        </Script>
         <ReactQueryProvider>
           <SupabaseProvider>
             <Layout>
