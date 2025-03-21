@@ -43,10 +43,13 @@ const UniqueCertificateManagement = () => {
     }
   }, [savedToken]);
 
-  const deleteCertificate = async (id: number) => {
+  const deleteCertificate = async (id: number, token: string) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/certificates/${id}`, {
         method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        },
       });
       if (!response.ok) throw new Error("Error deleting certificate.");
       setCertificates(certificates.filter((cert) => cert.id !== id));
@@ -174,7 +177,7 @@ const UniqueCertificateManagement = () => {
                 <td className="px-2 py-3 text-sm text-center">
                   <button
                     className="bg-red-100 text-red-600 px-3 py-1 rounded-lg hover:bg-red-200 transition-colors"
-                    onClick={() => deleteCertificate(cert.id)}
+                    onClick={() => deleteCertificate(cert.id, savedToken!)}
                   >
                     Delete
                   </button>
@@ -202,7 +205,7 @@ const UniqueCertificateManagement = () => {
               <div className="col-span-2">
                 <button
                   className="w-full bg-red-100 text-red-600 py-2 rounded-lg hover:bg-red-200 transition-colors"
-                  onClick={() => deleteCertificate(cert.id)}
+                  onClick={() => deleteCertificate(cert.id, savedToken!)}
                 >
                   Delete Certificate
                 </button>
