@@ -15,7 +15,7 @@ const Footer = () => {
             justify-between
             items-center"
             >
-                <div className="flex-shrink-0 mb-4 md:mb-0 flex justify-center md:justify-start">
+                <div className="flex-shrink-0 mb-4 my-4 md:mb-0 flex justify-center md:justify-start">
                     <Image
                         src={Logo}
                         alt="Logo"
