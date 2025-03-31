@@ -2,6 +2,7 @@
 import { NextPage } from "next";
 import { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 interface IBillboardProps {
     image: string | StaticImageData;
@@ -11,135 +12,136 @@ interface IBillboardProps {
 
 const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) => {
     const router = useRouter();
+    const [isVisible, setIsVisible] = useState(false);
+    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 100);
+        
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
-        <section>
-            <div
-                className="
-          w-full
-          relative
-          aspect-[16/7]
-          sm:aspect-[16/6]
-          md:aspect-[16/5]
-          lg:aspect-[16/4]
-          min-h-[390px]
-          sm:min-h-[490px]
-          md:min-h-[550px]
-          lg:min-h-[750px]
-        "
-            >
-
-                <div
-                    className="absolute rounded-2xl inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: `url(/images/Billboard/${image})` }}
-                    role="img"
-                    aria-label="Landing billboard image"
+        <section className="w-full mb-16">
+            {/* Modern minimalist hero design */}
+            <div className="relative w-full">
+                {/* Main container with clean lines */}
+                <div 
+                    className={`
+                        relative 
+                        w-full 
+                        aspect-[16/8] sm:aspect-[16/7] md:aspect-[16/12] lg:aspect-[16/8]
+                        overflow-hidden
+                        rounded-none
+                        transition-all duration-700 ease-out
+                        ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-8'}
+                        border-t-4 border-primary
+                        border-b-4
+                    `}
+                    style={{ 
+                        backgroundImage: `url(/images/Billboard/${image})`,
+                        backgroundPosition: 'center 40%',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                        minHeight: '360px',
+                    }}
                 >
-                    {contentBox && (
-                        <div className="hidden sm:flex h-full items-center justify-end px-2 my-2 sm:p-5">
-                            <article
-                                className="
-                  bg-white/20 
-                  text-white 
-                  backdrop-blur-[20px]
-                  backdrop-filter
-                  border 
-                  border-white/10
-                  p-5
-                  rounded-xl
-                  shadow-lg
-                  w-[391px]
-                  max-w-[691px]
-                "
-                            >
-                                <h1 className="font-bold text-xl text-center lg:text-2xl">
-                                    Your voice matters
-                                </h1>
-                                <p className="text-md text-center">
-                                    Sharing Your Thoughts Helps Me Better Represent You.
-                                    By outlining your priorities, I can deliver even more for you, your family, and our community.
-                                </p>
-                                <button
-                                    className="
-                    rounded-lg
-                    text-white
-                    border
-                    my-4
-                    border-secendory
-                    hover:bg-secendory
-                    transition-colors
-                    duration-300
-                    font-bold
-                    px-4
-                    py-2
-                    shadow-sm
-                    w-full
-                  "
-                                    onClick={() =>
-                                        router.push(
-                                            "https://www.ourcommons.ca/members/en/leah-taylor-roy(105024)#work"
-                                        )
-                                    }
-                                >
-                                    Explore Parliamentary Work
-                                </button>
-                            </article>
+                    {/* Clean, modern overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/30"></div>
+                    
+                    {/* Side bar accent */}
+                    <div className="absolute top-0 bottom-0 left-0 w-1 bg-primary"></div>
+                    <div className="absolute top-0 bottom-0 right-0 w-1 bg-primary"></div>
+                    
+                    {/* Content container */}
+                    <div className="relative h-full z-10">
+                        <div className="container mx-auto px-8 h-full flex items-center">
+                            <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-12">
+                                {/* Left side - clean modern title */}
+                                {pageTitle && (
+                                    <div className={`mb-8 md:mb-0 md:max-w-xl lg:max-w-2xl transition-all duration-700 delay-200 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+                                        <div className="inline-block bg-primary text-white px-4 py-2 mb-4 text-sm uppercase tracking-widest font-medium">
+                                            Parliamentary Updates
+                                        </div>
+                                        
+                                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none">
+                                            {pageTitle}
+                                        </h1>
+                                        
+                                        <div className="mt-5 h-1 w-32 bg-primary"></div>
+                                    </div>
+                                )}
+                                
+                                {/* Right side - content box with clean design */}
+                                {contentBox && (
+                                    <div className={`hidden md:block md:w-[420px] lg:w-[500px] transition-all duration-700 delay-400 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+                                        <div className="bg-white shadow-xl overflow-hidden transform transition duration-500 
+                                            hover:shadow-2xl hover:-translate-y-1">
+                                            
+                                            <div className="h-2 bg-primary"></div>
+                                            
+                                            <div className="p-10">
+                                                <h2 className="font-bold text-3xl text-gray-800 mb-6 flex items-center">
+                                                    <span className="w-2 h-8 bg-primary mr-4 inline-block"></span>
+                                                    Your voice matters
+                                                </h2>
+                                                
+                                                <p className="text-gray-600 mb-8 text-lg leading-relaxed">
+                                                    Sharing Your Thoughts Helps Me Better Represent You.
+                                                    By outlining your priorities, I can deliver even more for you, your family, and our community.
+                                                </p>
+                                                
+                                                <button
+                                                    className="w-full py-5 px-6 bg-primary text-white text-lg font-semibold
+                                                    transition-all duration-300 hover:bg-black 
+                                                    flex items-center justify-center group"
+                                                    onClick={() => router.push("https://www.ourcommons.ca/members/en/leah-taylor-roy(105024)#work")}
+                                                >
+                                                    <span>Explore Parliamentary Work</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7M5 12h16" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
-                    )}
+                    </div>
                 </div>
-                {
-                    pageTitle && (
-                        <div className="absolute bottom-0 left-0 p-6 z-10">
-                            <h1 className="text-3xl font-bold text-left text-white border-b-4 border-primary mb-6">
-                                {
-                                    pageTitle
-                                }
-                            </h1>
-                        </div>
-                    )}
             </div>
 
+            {/* Mobile content card with minimal design */}
             {contentBox && (
-                <div className="block sm:hidden mt-4 w-full">
-                    <article
-                        className="
-            text-black
-            border
-            border-white/10
-            p-5
-            rounded-xl
-            w-full
-          "
-                    >
-                        <h1 className="font-bold text-xl text-center mb-4">
-                            Your voice matters
-                        </h1>
-                        <p className="text-base text-center mb-6">
-                            Sharing Your Thoughts Helps Me Better Represent You.
-                            By outlining your priorities, I can deliver even more for you, your family, and our community.
-                        </p>
-
-                        <div className="space-y-4">
+                <div className={`block md:hidden mt-8 mx-4 transition-all duration-700 delay-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                    <div className="bg-white shadow-lg overflow-hidden">
+                        <div className="h-1 bg-primary"></div>
+                        <div className="p-6">
+                            <h2 className="font-bold text-2xl text-gray-800 mb-4 flex items-center">
+                                <span className="w-1 h-6 bg-primary mr-3 inline-block"></span>
+                                Your voice matters
+                            </h2>
+                            
+                            <p className="text-gray-600 mb-6 leading-relaxed">
+                                Sharing Your Thoughts Helps Me Better Represent You.
+                                By outlining your priorities, I can deliver even more for you and our community.
+                            </p>
+                            
                             <button
-                                className="
-                rounded-lg
-                text-primary
-                my-4
-                border
-                border-secendory
-                hover:bg-secendory
-                hover:text-white
-                hover:font-bold
-                transition-all
-                px-4
-                py-2
-                w-full
-              "
+                                className="w-full py-4 px-4 bg-primary text-white font-semibold
+                                transition-all duration-300 hover:bg-black 
+                                flex items-center justify-center group"
+                                onClick={() => router.push("https://www.ourcommons.ca/members/en/leah-taylor-roy(105024)#work")}
                             >
-                                Explore Parliamentary Work
+                                <span>Explore Parliamentary Work</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7M5 12h16" />
+                                </svg>
                             </button>
                         </div>
-                    </article>
+                    </div>
                 </div>
             )}
         </section>
