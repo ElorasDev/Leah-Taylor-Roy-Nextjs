@@ -2,7 +2,7 @@
 import { NextPage } from "next";
 import { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface IBillboardProps {
     image: string | StaticImageData;
@@ -13,6 +13,8 @@ interface IBillboardProps {
 const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) => {
     const router = useRouter();
     const [isVisible, setIsVisible] = useState(false);
+    const titleRef = useRef<HTMLDivElement>(null);
+    const dividerRef = useRef<HTMLDivElement>(null);
     
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -21,6 +23,29 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
         
         return () => clearTimeout(timer);
     }, []);
+
+    useEffect(() => {
+        if (titleRef.current && dividerRef.current) {
+            const resizeObserver = new ResizeObserver(() => {
+                const titleWidth = titleRef.current?.clientWidth || 0;
+                if (dividerRef.current) {
+                    dividerRef.current.style.width = `${titleWidth}px`;
+                }
+            });
+            
+            resizeObserver.observe(titleRef.current);
+            
+            // اجرای اولیه برای تنظیم عرض درست
+            const titleWidth = titleRef.current.clientWidth;
+            dividerRef.current.style.width = `${titleWidth}px`;
+            
+            return () => {
+                if (titleRef.current) {
+                    resizeObserver.unobserve(titleRef.current);
+                }
+            };
+        }
+    }, [isVisible]);
 
     return (
         <section className="w-full mb-16">
@@ -65,11 +90,15 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
                                             Parliamentary Updates
                                         </div>
                                         
-                                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none">
-                                            {pageTitle}
-                                        </h1>
-                                        
-                                        <div className="mt-1 h-1 w-full bg-primary"></div>
+                                        <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none">
+                                            <span ref={titleRef} className="inline-block">
+                                                {pageTitle}
+                                            </span>
+                                            <div 
+                                                ref={dividerRef} 
+                                                className="h-1 bg-primary mt-1 w-full"
+                                            ></div>
+                                        </div>
                                     </div>
                                 )}
                                 
