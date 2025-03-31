@@ -69,7 +69,7 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
                                             {pageTitle}
                                         </h1>
                                         
-                                        <div className="mt-5 h-1 w-32 bg-primary"></div>
+                                        <div className="mt-1 h-1 w-full bg-primary"></div>
                                     </div>
                                 )}
                                 
