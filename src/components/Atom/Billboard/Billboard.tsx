@@ -24,7 +24,6 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
         return () => clearTimeout(timer);
     }, []);
 
-    // تنظیم عرض divider با استفاده از عرض متن
     useEffect(() => {
         if (titleRef.current && dividerRef.current) {
             const resizeObserver = new ResizeObserver(() => {
@@ -97,8 +96,7 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
                                             </span>
                                             <div 
                                                 ref={dividerRef} 
-                                                className="h-1 bg-primary mt-1"
-                                                style={{ width: '100%' }}
+                                                className="h-1 bg-primary mt-1 w-full"
                                             ></div>
                                         </div>
                                     </div>
