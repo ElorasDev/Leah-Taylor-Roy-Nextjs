@@ -35,7 +35,6 @@ const Billboard: NextPage<IBillboardProps> = ({ image, contentBox, pageTitle }) 
             
             resizeObserver.observe(titleRef.current);
             
-            // اجرای اولیه برای تنظیم عرض درست
             const titleWidth = titleRef.current.clientWidth;
             dividerRef.current.style.width = `${titleWidth}px`;
             
