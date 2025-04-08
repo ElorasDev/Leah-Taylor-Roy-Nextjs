@@ -46,14 +46,14 @@ const Landing = () => {
       </button>
       
       <div className="p-6 md:p-10 space-y-6 text-center">
-        <div className="inline-block p-2 rounded-full bg-red-50 text-red-600 mb-2">
+        <div className="inline-block p-2 rounded-full bg-yellow-100 text-yellow-700 mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
         </div>
-        
+
         <h3 className="text-xl md:text-2xl font-bold text-gray-800 tracking-tight">
-          You&apos;ve Reached Leah Taylor Roy&apos;s Official MP Website
+          ⚠️ You’ve Reached Leah Taylor Roy’s Official MP Website
         </h3>
         
         <p className="text-base md:text-lg text-gray-600 leading-relaxed">
@@ -62,20 +62,21 @@ const Landing = () => {
         
         <div className="py-2">
           <p className="text-base md:text-lg text-gray-600 font-medium">
-            To learn more about her campaign, upcoming events, or to get involved, please visit:
+            👉 To learn more about her campaign, upcoming events, or to get involved, please visit:
           </p>
-          <a href="https://supportleah.ca" target="_blank" rel="noopener noreferrer" 
-             className="mt-2 inline-flex items-center text-lg md:text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors duration-200">
-            <span className="mr-2">supportleah.ca</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+          <a 
+            href="https://supportleah.ca" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="mt-2 inline-flex items-center text-lg md:text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors duration-200"
+          >
+            🔗 supportleah.ca
           </a>
         </div>
         
         <div className="border-t border-gray-100 pt-6 mt-4">
           <p className="text-gray-600">
-            For non-campaign-related matters or support as a constituent:
+            📍 Campaign Office Address (for election-related inquiries):
           </p>
           <div className="mt-3 p-3 md:p-4 bg-gray-50 rounded-lg inline-flex items-center text-sm md:text-base flex-wrap justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,7 +86,7 @@ const Landing = () => {
             <span className="font-semibold text-gray-800">141 King Rd, Unit 4, Richmond Hill, ON</span>
           </div>
         </div>
-        
+
         <p className="text-gray-600 italic mt-4">
           Thank you for your support!
         </p>
