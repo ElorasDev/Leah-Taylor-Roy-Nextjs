@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import Link from "next/link";
 import { FiX } from "react-icons/fi";
 import Billboard from "@/components/Atom/Billboard/Billboard";
 import ContactSection from "@/components/Atom/ContactSection/ContactSection";
@@ -11,6 +12,7 @@ import useModal from "@/hooks/useModal/useModal";
 // images
 import LeahImage from "../../../../public/images/Leah/leah-image.webp";
 import Download from "@/components/Atom/Download/Download";
+
 
 const Landing = () => {
   const { showModal, closeModal, resetModal } = useModal();
@@ -95,13 +97,13 @@ const Landing = () => {
                 <p className="text-base md:text-lg text-gray-600 font-medium">
                   📥 Official Letter of Support for Leah Taylor Roy
                 </p>
-                <a
-                  href="/files/leah-campaign-brochure.pdf"
+                <Link
+                  href="https://tysgmcveyifgbduukmqj.supabase.co/storage/v1/object/sign/documents/Open%20Letter.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkb2N1bWVudHMvT3BlbiBMZXR0ZXIucGRmIiwiaWF0IjoxNzQ1NzkwNjM0LCJleHAiOjE3NzczMjY2MzR9.aMmAtV572NUys0IjzlXkhBXTYQNOggA03ej6zjYSeuo"
                   download
                   className="mt-2 inline-flex items-center text-lg md:text-xl font-bold text-green-600 hover:text-green-800 transition-colors duration-200"
                 >
                   🔗 Download PDF
-                </a>
+                </Link>
               </div>
 
               {/* آدرس دفتر */}
