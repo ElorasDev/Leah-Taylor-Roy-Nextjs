@@ -92,7 +92,6 @@ const Landing = () => {
                 </a>
               </div>
 
-              {/* لینک دانلود بروشور */}
               <div className="py-2">
                 <p className="text-base md:text-lg text-gray-600 font-medium">
                   📥 Official Letter of Support for Leah Taylor Roy
