@@ -1,99 +1,148 @@
 "use client";
 import { useEffect } from "react";
 import { FiX } from "react-icons/fi";
-import Billboard from '@/components/Atom/Billboard/Billboard';
-import ContactSection from '@/components/Atom/ContactSection/ContactSection';
-import KeyInitiativesAndStatements from '@/components/Atom/KeyInitiativesAndStatements/KeyInitiativesAndStatements';
-import Summary from '@/components/Atom/Summary/Summary';
-import ParallaxComponent from '../ParallaxComponent/ParallaxComponent';
-import useModal from '@/hooks/useModal/useModal';
+import Billboard from "@/components/Atom/Billboard/Billboard";
+import ContactSection from "@/components/Atom/ContactSection/ContactSection";
+import KeyInitiativesAndStatements from "@/components/Atom/KeyInitiativesAndStatements/KeyInitiativesAndStatements";
+import Summary from "@/components/Atom/Summary/Summary";
+import ParallaxComponent from "../ParallaxComponent/ParallaxComponent";
+import useModal from "@/hooks/useModal/useModal";
 
 // images
 import LeahImage from "../../../../public/images/Leah/leah-image.webp";
+import Download from "@/components/Atom/Download/Download";
 
 const Landing = () => {
   const { showModal, closeModal, resetModal } = useModal();
-  
+
   // Reset modal state on page reload
   useEffect(() => {
     const handleBeforeUnload = () => {
       resetModal();
     };
-    
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, [resetModal]);
 
   return (
     <>
-{showModal && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm transition-all duration-300 p-4 md:p-6">
-    <div 
-      className="bg-white rounded-xl max-w-lg w-full relative shadow-2xl border border-gray-100 transform transition-all duration-300 ease-out max-h-[90vh] md:max-h-[80vh] overflow-auto"
-      style={{
-        boxShadow: '0 10px 50px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05)',
-      }}
-    >
-      <button
-        onClick={closeModal}
-        className="sticky top-4 float-right right-4 text-gray-400 hover:text-gray-800 transition-colors duration-200 p-2 rounded-full hover:bg-gray-100 z-10"
-        aria-label="Close Modal"
-      >
-        <FiX size={20} />
-      </button>
-      
-      <div className="p-6 md:p-10 space-y-6 text-center">
-        <div className="inline-block p-2 rounded-full bg-yellow-100 text-yellow-700 mb-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-          </svg>
-        </div>
-
-        <h3 className="text-xl md:text-2xl font-bold text-gray-800 tracking-tight">
-          ⚠️ You’ve Reached Leah Taylor Roy’s Official MP Website
-        </h3>
-        
-        <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-          Leah Taylor Roy is currently running for re-election as the Liberal candidate in Aurora–Oak Ridges–Richmond Hill.
-        </p>
-        
-        <div className="py-2">
-          <p className="text-base md:text-lg text-gray-600 font-medium">
-            👉 To learn more about her campaign, upcoming events, or to get involved, please visit:
-          </p>
-          <a 
-            href="https://supportleah.ca" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="mt-2 inline-flex items-center text-lg md:text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors duration-200"
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm transition-all duration-300 p-4 md:p-6">
+          <div
+            className="bg-white rounded-xl max-w-lg w-full relative shadow-2xl border border-gray-100 transform transition-all duration-300 ease-out max-h-[90vh] md:max-h-[80vh] overflow-auto"
+            style={{
+              boxShadow:
+                "0 10px 50px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05)",
+            }}
           >
-            🔗 supportleah.ca
-          </a>
-        </div>
-        
-        <div className="border-t border-gray-100 pt-6 mt-4">
-          <p className="text-gray-600">
-            📍 Campaign Office Address (for election-related inquiries):
-          </p>
-          <div className="mt-3 p-3 md:p-4 bg-gray-50 rounded-lg inline-flex items-center text-sm md:text-base flex-wrap justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span className="font-semibold text-gray-800">141 King Rd, Unit 4, Richmond Hill, ON</span>
+            <button
+              onClick={closeModal}
+              className="sticky top-4 float-right right-4 text-gray-400 hover:text-gray-800 transition-colors duration-200 p-2 rounded-full hover:bg-gray-100 z-10"
+              aria-label="Close Modal"
+            >
+              <FiX size={20} />
+            </button>
+
+            <div className="p-6 md:p-10 space-y-6 text-center">
+              <div className="inline-block p-2 rounded-full bg-yellow-100 text-yellow-700 mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  />
+                </svg>
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800 tracking-tight">
+                ⚠️ You’ve Reached Leah Taylor Roy’s Official MP Website
+              </h3>
+
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                Leah Taylor Roy is currently running for re-election as the
+                Liberal candidate in Aurora–Oak Ridges–Richmond Hill.
+              </p>
+
+              {/* لینک سایت کمپین */}
+              <div className="py-2">
+                <p className="text-base md:text-lg text-gray-600 font-medium">
+                  👉 To learn more about her campaign, upcoming events, or to
+                  get involved, please visit:
+                </p>
+                <a
+                  href="https://supportleah.ca"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center text-lg md:text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                >
+                  🔗 supportleah.ca
+                </a>
+              </div>
+
+              {/* لینک دانلود بروشور */}
+              <div className="py-2">
+                <p className="text-base md:text-lg text-gray-600 font-medium">
+                  📥 Official Letter of Support for Leah Taylor Roy
+                </p>
+                <a
+                  href="/files/leah-campaign-brochure.pdf"
+                  download
+                  className="mt-2 inline-flex items-center text-lg md:text-xl font-bold text-green-600 hover:text-green-800 transition-colors duration-200"
+                >
+                  🔗 Download PDF
+                </a>
+              </div>
+
+              {/* آدرس دفتر */}
+              <div className="border-t border-gray-100 pt-6 mt-4">
+                <p className="text-gray-600">
+                  📍 Campaign Office Address (for election-related inquiries):
+                </p>
+                <div className="mt-3 p-3 md:p-4 bg-gray-50 rounded-lg inline-flex items-center text-sm md:text-base flex-wrap justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-gray-500 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  <span className="font-semibold text-gray-800">
+                    141 King Rd, Unit 4, Richmond Hill, ON
+                  </span>
+                </div>
+              </div>
+
+              <p className="text-gray-600 italic mt-4">
+                Thank you for your support!
+              </p>
+            </div>
           </div>
         </div>
-
-        <p className="text-gray-600 italic mt-4">
-          Thank you for your support!
-        </p>
-      </div>
-    </div>
-  </div>
-)}
+      )}
 
       <section>
         <div className="py-24 px-8">
@@ -113,6 +162,7 @@ const Landing = () => {
             buttonContent="Discover More About Leah"
           />
         </div>
+        <Download />
         <div className="!p-0 !m-0">
           <KeyInitiativesAndStatements />
         </div>
