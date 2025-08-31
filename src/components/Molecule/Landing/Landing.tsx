@@ -1,17 +1,47 @@
 "use client";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FiX } from "react-icons/fi";
 import Billboard from "@/components/Atom/Billboard/Billboard";
-import ContactSection from "@/components/Atom/ContactSection/ContactSection";
-import KeyInitiativesAndStatements from "@/components/Atom/KeyInitiativesAndStatements/KeyInitiativesAndStatements";
 import Summary from "@/components/Atom/Summary/Summary";
-import ParallaxComponent from "../ParallaxComponent/ParallaxComponent";
 import useModal from "@/hooks/useModal/useModal";
+
+const Download = dynamic(() => import("@/components/Atom/Download/Download"), {
+  ssr: false,
+  loading: () => <p className="text-center">Loading...</p>,
+});
+
+const KeyInitiativesAndStatements = dynamic(
+  () =>
+    import(
+      "@/components/Atom/KeyInitiativesAndStatements/KeyInitiativesAndStatements"
+    ),
+  {
+    ssr: false,
+    loading: () => <p className="text-center">Loading...</p>,
+  }
+);
+
+const ParallaxComponent = dynamic(
+  () => import("../ParallaxComponent/ParallaxComponent"),
+  {
+    ssr: false,
+    loading: () => <p className="text-center">Loading...</p>,
+  }
+);
+
+const ContactSection = dynamic(
+  () => import("@/components/Atom/ContactSection/ContactSection"),
+  {
+    ssr: false,
+    loading: () => <p className="text-center">Loading...</p>,
+  }
+);
 
 // images
 import LeahImage from "../../../../public/images/Leah/leah-image.webp";
-import Download from "@/components/Atom/Download/Download";
+
 
 
 const Landing = () => {
@@ -76,7 +106,7 @@ const Landing = () => {
                 Liberal candidate in Aurora–Oak Ridges–Richmond Hill.
               </p>
 
-              {/* لینک سایت کمپین */}
+
               <div className="py-2">
                 <p className="text-base md:text-lg text-gray-600 font-medium">
                   👉 To learn more about her campaign, upcoming events, or to
